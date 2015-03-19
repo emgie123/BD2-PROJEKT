@@ -1,0 +1,52 @@
+﻿/***********************************GŁÓWNE STYLOWANIE**********************************/
+body{
+    background-color:#aa645b;
+}
+
+/***********************************DEFINICJA STYLU DLA MENU***************************/
+#menu{
+    background-color:#6e271e;
+}
+
+#pasek_nawi{
+    background-color:#6e271e;
+    border-style:none;
+    font-size:1.7rem;
+    
+}
+
+.navbar-inverse .navbar-nav > li > a{
+	color: #ffffff;
+	margin-left: 5px;
+	border: 1px solid transparent;
+	line-height: 1rem;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover{
+	display: block;
+	color: #fc4349;
+	border: 1px solid transparent;
+	border-color: #fc4349;
+	line-height: 1rem;
+	border-radius: 4px;
+	transition: all 0.7s ease;
+}
+
+.navbar-inverse .navbar-nav > .active > a{
+	display: block;
+	border-color: #ffffff;
+	background-color: #2c3e50;
+	border-radius: 4px;
+}
+
+.navbar-inverse .navbar-nav > .active > a:hover{
+	color: #fc4349;
+	background-color: #2c3e50;
+}
+
+
+#logo img{
+	display: block;
+	float:  none;
+	margin-top: -1rem;
+}
