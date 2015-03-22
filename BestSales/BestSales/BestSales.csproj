@@ -135,6 +135,8 @@
     <Content Include="Images\bmw_f10_carousel.jpg" />
     <Content Include="Images\bmw_schnitzer_carousel.jpg" />
     <Content Include="Images\Lamborghini_carousel.jpg" />
+    <Content Include="Images\logo_300x300.png" />
+    <Content Include="Images\logo_42x42.png" />
     <Content Include="Images\welcome_carousel.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
