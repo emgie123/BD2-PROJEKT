@@ -8,13 +8,16 @@ body{
 /*Zacznijmy od wypozycjonowania i nadania rozmiary headera, w którym siedzi menu główne.*/
 #menu{
     background-color:#000;
+    border-bottom-style:solid;
+    border-bottom-width:thick;
+    border-color:#b22424;
 }
 .navbar{
     font-size:1.5rem;
     color:#fff;
     margin-top:1.5rem;
     margin-bottom:1rem;
-    border-style:none;
+
     background-color:#000;
 }
 
@@ -58,4 +61,73 @@ body{
 /**********************DEFINICJA STYLU DLA GŁÓWNEJ TREŚCI********************/
 #main-content{
     margin-top:9rem;
+    margin-left:1rem;
+    margin-right:1rem;
+}
+
+/*********************************PRZECHODZIMY DO MENU BOCZNEGO**********************************/
+
+#menu_harmonijkowe .panel{
+    margin:0;   
+    padding:0;
+    background-color:#fff;
+}
+a .panel-heading{
+    border-radius:0;
+    color:#b22424;
+    background-color:#000;
+}
+
+a .panel-heading:hover{
+    background-color:#b22424;
+    color:#fff;
+    transition: all 0.7s ease;
+}
+
+a .panel-heading:active{
+    background-color:#b22424;
+}
+
+#menu_harmonijkowe .panel-collapse{
+    background-color:#b22424;
+}
+
+#menu_harmonijkowe .list-group{
+    margin-bottom:0;
+}
+#menu_harmonijkowe .list-group-item{
+    background-color:#000;
+    color:#b22424;
+}
+#menu_harmonijkowe .list-group-item:hover{
+    background-color:#b22424;
+    color:#000;
+    font-weight:bold;
+    transition: all 0.7s ease;
+}
+
+/*********************************PRZECHODZIMY DO KARUZELI**********************************/
+
+.carousel-holder{
+    margin:0 auto 2rem auto;
+    max-width:900px;
+}
+.carousel-inner .item{
+    padding-left:42px;
+}
+
+/*********************************PRZECHODZIMY DO MINIATUREK - THUMBNAILS**********************************/
+
+#main-content .thumbnail{
+    background-color:#000;
+    color:#fff;
+}
+
+.thumbnail .ratings p{
+    display:inline;
+}
+
+.thumbnail .caption{
+    overflow:hidden;
+    max-height:110px;
 }
