@@ -1,0 +1,573 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Bd2KomisBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Adres">
+          <Key>
+            <PropertyRef Name="IdAdresu" />
+          </Key>
+          <Property Name="IdAdresu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Miejscowosc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="KodPocztowy" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="Ulica" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DaneSamochodu">
+          <Key>
+            <PropertyRef Name="IdSamochodu" />
+          </Key>
+          <Property Name="IdSamochodu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdModelu" Type="int" Nullable="false" />
+          <Property Name="RokProdukcji" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Przebieg" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Pojemnosc" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="RodzajPaliwa" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SkrzyniaBiegow" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Bezwypadkowy" Type="bit" Nullable="false" />
+          <Property Name="DataPrzegladu" Type="date" Nullable="false" />
+          <Property Name="DataUbezpieczenia" Type="date" Nullable="false" />
+          <Property Name="DataPzyjecia" Type="date" Nullable="false" />
+          <Property Name="Kolor" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="NrRejestracyjny" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="IdKlienta" Type="int" />
+          <Property Name="Cena" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="LiczbaDrzwi" Type="int" Nullable="false" />
+          <Property Name="RodzajNadwozia" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="KrajPochodzenia" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Klienci">
+          <Key>
+            <PropertyRef Name="IdKlienta" />
+          </Key>
+          <Property Name="IdKlienta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdAdresu" Type="int" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Telefon" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pesel" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nip" Type="varchar" MaxLength="50" />
+          <Property Name="NrKonta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TypKlienta" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MarkiSamochodow">
+          <Key>
+            <PropertyRef Name="IdMarki" />
+          </Key>
+          <Property Name="IdMarki" Type="int" Nullable="false" />
+          <Property Name="Marka" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ModeleSamochodow">
+          <Key>
+            <PropertyRef Name="IdModelu" />
+          </Key>
+          <Property Name="IdModelu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdMarki" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.WyposazenieDodatkowe' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="WyposazenieDodatkowe">
+          <Key>
+            <PropertyRef Name="Abs" />
+            <PropertyRef Name="Esp" />
+            <PropertyRef Name="Asr" />
+            <PropertyRef Name="AirBag" />
+            <PropertyRef Name="Wspomaganie" />
+            <PropertyRef Name="Klimatyzacja" />
+            <PropertyRef Name="ZapasoweOpony" />
+          </Key>
+          <Property Name="IdSamochodu" Type="int" />
+          <Property Name="Abs" Type="bit" Nullable="false" />
+          <Property Name="Esp" Type="bit" Nullable="false" />
+          <Property Name="Asr" Type="bit" Nullable="false" />
+          <Property Name="AirBag" Type="bit" Nullable="false" />
+          <Property Name="Wspomaganie" Type="bit" Nullable="false" />
+          <Property Name="Klimatyzacja" Type="bit" Nullable="false" />
+          <Property Name="ZapasoweOpony" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.ZalaczoneDokumenty' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ZalaczoneDokumenty">
+          <Key>
+            <PropertyRef Name="ZalaczonyDokument" />
+          </Key>
+          <Property Name="IdSamochodu" Type="int" />
+          <Property Name="ZalaczonyDokument" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__DaneSamoc__IdKli__2F10007B">
+          <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DaneSamochodu" Type="Self.DaneSamochodu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klienci">
+              <PropertyRef Name="IdKlienta" />
+            </Principal>
+            <Dependent Role="DaneSamochodu">
+              <PropertyRef Name="IdKlienta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DaneSamoc__IdMod__2E1BDC42">
+          <End Role="ModeleSamochodow" Type="Self.ModeleSamochodow" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DaneSamochodu" Type="Self.DaneSamochodu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ModeleSamochodow">
+              <PropertyRef Name="IdModelu" />
+            </Principal>
+            <Dependent Role="DaneSamochodu">
+              <PropertyRef Name="IdModelu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Klienci__IdAdres__2B3F6F97">
+          <End Role="Adres" Type="Self.Adres" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Klienci" Type="Self.Klienci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adres">
+              <PropertyRef Name="IdAdresu" />
+            </Principal>
+            <Dependent Role="Klienci">
+              <PropertyRef Name="IdAdresu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ModeleSam__IdMar__286302EC">
+          <End Role="MarkiSamochodow" Type="Self.MarkiSamochodow" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ModeleSamochodow" Type="Self.ModeleSamochodow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MarkiSamochodow">
+              <PropertyRef Name="IdMarki" />
+            </Principal>
+            <Dependent Role="ModeleSamochodow">
+              <PropertyRef Name="IdMarki" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Wyposazen__IdSam__30F848ED">
+          <End Role="DaneSamochodu" Type="Self.DaneSamochodu" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WyposazenieDodatkowe" Type="Self.WyposazenieDodatkowe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DaneSamochodu">
+              <PropertyRef Name="IdSamochodu" />
+            </Principal>
+            <Dependent Role="WyposazenieDodatkowe">
+              <PropertyRef Name="IdSamochodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Zalaczone__IdSam__32E0915F">
+          <End Role="DaneSamochodu" Type="Self.DaneSamochodu" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ZalaczoneDokumenty" Type="Self.ZalaczoneDokumenty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DaneSamochodu">
+              <PropertyRef Name="IdSamochodu" />
+            </Principal>
+            <Dependent Role="ZalaczoneDokumenty">
+              <PropertyRef Name="IdSamochodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Bd2KomisBDModelStoreContainer">
+          <EntitySet Name="Adres" EntityType="Self.Adres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DaneSamochodu" EntityType="Self.DaneSamochodu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Klienci" EntityType="Self.Klienci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MarkiSamochodow" EntityType="Self.MarkiSamochodow" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ModeleSamochodow" EntityType="Self.ModeleSamochodow" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WyposazenieDodatkowe" EntityType="Self.WyposazenieDodatkowe" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [WyposazenieDodatkowe].[IdSamochodu] AS [IdSamochodu], 
+    [WyposazenieDodatkowe].[Abs] AS [Abs], 
+    [WyposazenieDodatkowe].[Esp] AS [Esp], 
+    [WyposazenieDodatkowe].[Asr] AS [Asr], 
+    [WyposazenieDodatkowe].[AirBag] AS [AirBag], 
+    [WyposazenieDodatkowe].[Wspomaganie] AS [Wspomaganie], 
+    [WyposazenieDodatkowe].[Klimatyzacja] AS [Klimatyzacja], 
+    [WyposazenieDodatkowe].[ZapasoweOpony] AS [ZapasoweOpony]
+    FROM [dbo].[WyposazenieDodatkowe] AS [WyposazenieDodatkowe]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ZalaczoneDokumenty" EntityType="Self.ZalaczoneDokumenty" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ZalaczoneDokumenty].[IdSamochodu] AS [IdSamochodu], 
+    [ZalaczoneDokumenty].[ZalaczonyDokument] AS [ZalaczonyDokument]
+    FROM [dbo].[ZalaczoneDokumenty] AS [ZalaczoneDokumenty]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__DaneSamoc__IdKli__2F10007B" Association="Self.FK__DaneSamoc__IdKli__2F10007B">
+            <End Role="Klienci" EntitySet="Klienci" />
+            <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DaneSamoc__IdMod__2E1BDC42" Association="Self.FK__DaneSamoc__IdMod__2E1BDC42">
+            <End Role="ModeleSamochodow" EntitySet="ModeleSamochodow" />
+            <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Klienci__IdAdres__2B3F6F97" Association="Self.FK__Klienci__IdAdres__2B3F6F97">
+            <End Role="Adres" EntitySet="Adres" />
+            <End Role="Klienci" EntitySet="Klienci" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ModeleSam__IdMar__286302EC" Association="Self.FK__ModeleSam__IdMar__286302EC">
+            <End Role="MarkiSamochodow" EntitySet="MarkiSamochodow" />
+            <End Role="ModeleSamochodow" EntitySet="ModeleSamochodow" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Wyposazen__IdSam__30F848ED" Association="Self.FK__Wyposazen__IdSam__30F848ED">
+            <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
+            <End Role="WyposazenieDodatkowe" EntitySet="WyposazenieDodatkowe" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zalaczone__IdSam__32E0915F" Association="Self.FK__Zalaczone__IdSam__32E0915F">
+            <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
+            <End Role="ZalaczoneDokumenty" EntitySet="ZalaczoneDokumenty" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Bd2KomisBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Adres">
+          <Key>
+            <PropertyRef Name="IdAdresu" />
+          </Key>
+          <Property Name="IdAdresu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Miejscowosc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KodPocztowy" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ulica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Klienci" Relationship="Self.FK__Klienci__IdAdres__2B3F6F97" FromRole="Adres" ToRole="Klienci" />
+        </EntityType>
+        <EntityType Name="DaneSamochodu">
+          <Key>
+            <PropertyRef Name="IdSamochodu" />
+          </Key>
+          <Property Name="IdSamochodu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdModelu" Type="Int32" Nullable="false" />
+          <Property Name="RokProdukcji" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Przebieg" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pojemnosc" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RodzajPaliwa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SkrzyniaBiegow" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Bezwypadkowy" Type="Boolean" Nullable="false" />
+          <Property Name="DataPrzegladu" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DataUbezpieczenia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DataPzyjecia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Kolor" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NrRejestracyjny" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdKlienta" Type="Int32" />
+          <Property Name="Cena" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="LiczbaDrzwi" Type="Int32" Nullable="false" />
+          <Property Name="RodzajNadwozia" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KrajPochodzenia" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Klienci" Relationship="Self.FK__DaneSamoc__IdKli__2F10007B" FromRole="DaneSamochodu" ToRole="Klienci" />
+          <NavigationProperty Name="ModeleSamochodow" Relationship="Self.FK__DaneSamoc__IdMod__2E1BDC42" FromRole="DaneSamochodu" ToRole="ModeleSamochodow" />
+          <NavigationProperty Name="WyposazenieDodatkowe" Relationship="Self.FK__Wyposazen__IdSam__30F848ED" FromRole="DaneSamochodu" ToRole="WyposazenieDodatkowe" />
+          <NavigationProperty Name="ZalaczoneDokumenty" Relationship="Self.FK__Zalaczone__IdSam__32E0915F" FromRole="DaneSamochodu" ToRole="ZalaczoneDokumenty" />
+        </EntityType>
+        <EntityType Name="Klienci">
+          <Key>
+            <PropertyRef Name="IdKlienta" />
+          </Key>
+          <Property Name="IdKlienta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdAdresu" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pesel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NrKonta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TypKlienta" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Adres" Relationship="Self.FK__Klienci__IdAdres__2B3F6F97" FromRole="Klienci" ToRole="Adres" />
+          <NavigationProperty Name="DaneSamochodu" Relationship="Self.FK__DaneSamoc__IdKli__2F10007B" FromRole="Klienci" ToRole="DaneSamochodu" />
+        </EntityType>
+        <EntityType Name="MarkiSamochodow">
+          <Key>
+            <PropertyRef Name="IdMarki" />
+          </Key>
+          <Property Name="IdMarki" Type="Int32" Nullable="false" />
+          <Property Name="Marka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ModeleSamochodow" Relationship="Self.FK__ModeleSam__IdMar__286302EC" FromRole="MarkiSamochodow" ToRole="ModeleSamochodow" />
+        </EntityType>
+        <EntityType Name="ModeleSamochodow">
+          <Key>
+            <PropertyRef Name="IdModelu" />
+          </Key>
+          <Property Name="IdModelu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdMarki" Type="Int32" />
+          <NavigationProperty Name="DaneSamochodu" Relationship="Self.FK__DaneSamoc__IdMod__2E1BDC42" FromRole="ModeleSamochodow" ToRole="DaneSamochodu" />
+          <NavigationProperty Name="MarkiSamochodow" Relationship="Self.FK__ModeleSam__IdMar__286302EC" FromRole="ModeleSamochodow" ToRole="MarkiSamochodow" />
+        </EntityType>
+        <EntityType Name="WyposazenieDodatkowe">
+          <Key>
+            <PropertyRef Name="Abs" />
+            <PropertyRef Name="Esp" />
+            <PropertyRef Name="Asr" />
+            <PropertyRef Name="AirBag" />
+            <PropertyRef Name="Wspomaganie" />
+            <PropertyRef Name="Klimatyzacja" />
+            <PropertyRef Name="ZapasoweOpony" />
+          </Key>
+          <Property Name="IdSamochodu" Type="Int32" />
+          <Property Name="Abs" Type="Boolean" Nullable="false" />
+          <Property Name="Esp" Type="Boolean" Nullable="false" />
+          <Property Name="Asr" Type="Boolean" Nullable="false" />
+          <Property Name="AirBag" Type="Boolean" Nullable="false" />
+          <Property Name="Wspomaganie" Type="Boolean" Nullable="false" />
+          <Property Name="Klimatyzacja" Type="Boolean" Nullable="false" />
+          <Property Name="ZapasoweOpony" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="DaneSamochodu" Relationship="Self.FK__Wyposazen__IdSam__30F848ED" FromRole="WyposazenieDodatkowe" ToRole="DaneSamochodu" />
+        </EntityType>
+        <EntityType Name="ZalaczoneDokumenty">
+          <Key>
+            <PropertyRef Name="ZalaczonyDokument" />
+          </Key>
+          <Property Name="IdSamochodu" Type="Int32" />
+          <Property Name="ZalaczonyDokument" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DaneSamochodu" Relationship="Self.FK__Zalaczone__IdSam__32E0915F" FromRole="ZalaczoneDokumenty" ToRole="DaneSamochodu" />
+        </EntityType>
+        <Association Name="FK__Klienci__IdAdres__2B3F6F97">
+          <End Role="Adres" Type="Self.Adres" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Klienci" Type="Self.Klienci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adres">
+              <PropertyRef Name="IdAdresu" />
+            </Principal>
+            <Dependent Role="Klienci">
+              <PropertyRef Name="IdAdresu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DaneSamoc__IdKli__2F10007B">
+          <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DaneSamochodu" Type="Self.DaneSamochodu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klienci">
+              <PropertyRef Name="IdKlienta" />
+            </Principal>
+            <Dependent Role="DaneSamochodu">
+              <PropertyRef Name="IdKlienta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DaneSamoc__IdMod__2E1BDC42">
+          <End Role="ModeleSamochodow" Type="Self.ModeleSamochodow" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DaneSamochodu" Type="Self.DaneSamochodu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ModeleSamochodow">
+              <PropertyRef Name="IdModelu" />
+            </Principal>
+            <Dependent Role="DaneSamochodu">
+              <PropertyRef Name="IdModelu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Wyposazen__IdSam__30F848ED">
+          <End Role="DaneSamochodu" Type="Self.DaneSamochodu" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WyposazenieDodatkowe" Type="Self.WyposazenieDodatkowe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DaneSamochodu">
+              <PropertyRef Name="IdSamochodu" />
+            </Principal>
+            <Dependent Role="WyposazenieDodatkowe">
+              <PropertyRef Name="IdSamochodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Zalaczone__IdSam__32E0915F">
+          <End Role="DaneSamochodu" Type="Self.DaneSamochodu" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ZalaczoneDokumenty" Type="Self.ZalaczoneDokumenty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DaneSamochodu">
+              <PropertyRef Name="IdSamochodu" />
+            </Principal>
+            <Dependent Role="ZalaczoneDokumenty">
+              <PropertyRef Name="IdSamochodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ModeleSam__IdMar__286302EC">
+          <End Role="MarkiSamochodow" Type="Self.MarkiSamochodow" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ModeleSamochodow" Type="Self.ModeleSamochodow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MarkiSamochodow">
+              <PropertyRef Name="IdMarki" />
+            </Principal>
+            <Dependent Role="ModeleSamochodow">
+              <PropertyRef Name="IdMarki" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Bd2KomisBDEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Adres" EntityType="Self.Adres" />
+          <EntitySet Name="DaneSamochodu" EntityType="Self.DaneSamochodu" />
+          <EntitySet Name="Klienci" EntityType="Self.Klienci" />
+          <EntitySet Name="MarkiSamochodow" EntityType="Self.MarkiSamochodow" />
+          <EntitySet Name="ModeleSamochodow" EntityType="Self.ModeleSamochodow" />
+          <EntitySet Name="WyposazenieDodatkowe" EntityType="Self.WyposazenieDodatkowe" />
+          <EntitySet Name="ZalaczoneDokumenty" EntityType="Self.ZalaczoneDokumenty" />
+          <AssociationSet Name="FK__Klienci__IdAdres__2B3F6F97" Association="Self.FK__Klienci__IdAdres__2B3F6F97">
+            <End Role="Adres" EntitySet="Adres" />
+            <End Role="Klienci" EntitySet="Klienci" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DaneSamoc__IdKli__2F10007B" Association="Self.FK__DaneSamoc__IdKli__2F10007B">
+            <End Role="Klienci" EntitySet="Klienci" />
+            <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DaneSamoc__IdMod__2E1BDC42" Association="Self.FK__DaneSamoc__IdMod__2E1BDC42">
+            <End Role="ModeleSamochodow" EntitySet="ModeleSamochodow" />
+            <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Wyposazen__IdSam__30F848ED" Association="Self.FK__Wyposazen__IdSam__30F848ED">
+            <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
+            <End Role="WyposazenieDodatkowe" EntitySet="WyposazenieDodatkowe" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zalaczone__IdSam__32E0915F" Association="Self.FK__Zalaczone__IdSam__32E0915F">
+            <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
+            <End Role="ZalaczoneDokumenty" EntitySet="ZalaczoneDokumenty" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ModeleSam__IdMar__286302EC" Association="Self.FK__ModeleSam__IdMar__286302EC">
+            <End Role="MarkiSamochodow" EntitySet="MarkiSamochodow" />
+            <End Role="ModeleSamochodow" EntitySet="ModeleSamochodow" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Bd2KomisBDModelStoreContainer" CdmEntityContainer="Bd2KomisBDEntities1">
+          <EntitySetMapping Name="Adres">
+            <EntityTypeMapping TypeName="Bd2KomisBDModel.Adres">
+              <MappingFragment StoreEntitySet="Adres">
+                <ScalarProperty Name="IdAdresu" ColumnName="IdAdresu" />
+                <ScalarProperty Name="Miejscowosc" ColumnName="Miejscowosc" />
+                <ScalarProperty Name="KodPocztowy" ColumnName="KodPocztowy" />
+                <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DaneSamochodu">
+            <EntityTypeMapping TypeName="Bd2KomisBDModel.DaneSamochodu">
+              <MappingFragment StoreEntitySet="DaneSamochodu">
+                <ScalarProperty Name="IdSamochodu" ColumnName="IdSamochodu" />
+                <ScalarProperty Name="IdModelu" ColumnName="IdModelu" />
+                <ScalarProperty Name="RokProdukcji" ColumnName="RokProdukcji" />
+                <ScalarProperty Name="Przebieg" ColumnName="Przebieg" />
+                <ScalarProperty Name="Pojemnosc" ColumnName="Pojemnosc" />
+                <ScalarProperty Name="RodzajPaliwa" ColumnName="RodzajPaliwa" />
+                <ScalarProperty Name="SkrzyniaBiegow" ColumnName="SkrzyniaBiegow" />
+                <ScalarProperty Name="Bezwypadkowy" ColumnName="Bezwypadkowy" />
+                <ScalarProperty Name="DataPrzegladu" ColumnName="DataPrzegladu" />
+                <ScalarProperty Name="DataUbezpieczenia" ColumnName="DataUbezpieczenia" />
+                <ScalarProperty Name="DataPzyjecia" ColumnName="DataPzyjecia" />
+                <ScalarProperty Name="Kolor" ColumnName="Kolor" />
+                <ScalarProperty Name="NrRejestracyjny" ColumnName="NrRejestracyjny" />
+                <ScalarProperty Name="IdKlienta" ColumnName="IdKlienta" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+                <ScalarProperty Name="LiczbaDrzwi" ColumnName="LiczbaDrzwi" />
+                <ScalarProperty Name="RodzajNadwozia" ColumnName="RodzajNadwozia" />
+                <ScalarProperty Name="KrajPochodzenia" ColumnName="KrajPochodzenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Klienci">
+            <EntityTypeMapping TypeName="Bd2KomisBDModel.Klienci">
+              <MappingFragment StoreEntitySet="Klienci">
+                <ScalarProperty Name="IdKlienta" ColumnName="IdKlienta" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="IdAdresu" ColumnName="IdAdresu" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Pesel" ColumnName="Pesel" />
+                <ScalarProperty Name="Nip" ColumnName="Nip" />
+                <ScalarProperty Name="NrKonta" ColumnName="NrKonta" />
+                <ScalarProperty Name="TypKlienta" ColumnName="TypKlienta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MarkiSamochodow">
+            <EntityTypeMapping TypeName="Bd2KomisBDModel.MarkiSamochodow">
+              <MappingFragment StoreEntitySet="MarkiSamochodow">
+                <ScalarProperty Name="IdMarki" ColumnName="IdMarki" />
+                <ScalarProperty Name="Marka" ColumnName="Marka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ModeleSamochodow">
+            <EntityTypeMapping TypeName="Bd2KomisBDModel.ModeleSamochodow">
+              <MappingFragment StoreEntitySet="ModeleSamochodow">
+                <ScalarProperty Name="IdModelu" ColumnName="IdModelu" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="IdMarki" ColumnName="IdMarki" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WyposazenieDodatkowe">
+            <EntityTypeMapping TypeName="Bd2KomisBDModel.WyposazenieDodatkowe">
+              <MappingFragment StoreEntitySet="WyposazenieDodatkowe">
+                <ScalarProperty Name="IdSamochodu" ColumnName="IdSamochodu" />
+                <ScalarProperty Name="Abs" ColumnName="Abs" />
+                <ScalarProperty Name="Esp" ColumnName="Esp" />
+                <ScalarProperty Name="Asr" ColumnName="Asr" />
+                <ScalarProperty Name="AirBag" ColumnName="AirBag" />
+                <ScalarProperty Name="Wspomaganie" ColumnName="Wspomaganie" />
+                <ScalarProperty Name="Klimatyzacja" ColumnName="Klimatyzacja" />
+                <ScalarProperty Name="ZapasoweOpony" ColumnName="ZapasoweOpony" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZalaczoneDokumenty">
+            <EntityTypeMapping TypeName="Bd2KomisBDModel.ZalaczoneDokumenty">
+              <MappingFragment StoreEntitySet="ZalaczoneDokumenty">
+                <ScalarProperty Name="IdSamochodu" ColumnName="IdSamochodu" />
+                <ScalarProperty Name="ZalaczonyDokument" ColumnName="ZalaczonyDokument" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,23 +1,23 @@
-﻿CREATE TABLE [dbo].[dane_samochodu]
+﻿CREATE TABLE [dbo].[DaneSamochodu]
 (
-	[Id_samochodu] INT NOT NULL PRIMARY KEY IDENTITY,
-	[id_modelu] INT NOT NULL FOREIGN KEY REFERENCES modele_samochodow(id_modelu) ON DELETE CASCADE ON UPDATE CASCADE,
-	[rok_produkcji] INT NOT NULL ,
-	[przebieg] INT NOT NULL,
-	[pojemnosc] INT NOT NULL,
-	[rodzaj_paliwa] VARCHAR(10) NOT NULL,
-	[skrzynia_biegow] VARCHAR(10) NOT NULL,
-	[bezwypadkowy] BIT NOT NULL,
-	[data_przegladu] date NOT NULL,
-	[data_ubezpieczenia] date NOT NULL,
-	[data_przyjecia] date NOT NULL,
-	[kolor] varchar(15) NOT NULL,
-	[nr_rejestracyjny] VARCHAR(7) NOT NULL,
-	[id_klienta] INT FOREIGN KEY REFERENCES klienci(id_klienta) ON DELETE CASCADE ON UPDATE CASCADE,
-	[cena] DECIMAL NOT NULL,
-	[liczba_drzwi] INT NOT NULL,
-	[rodzaj_nadwozia] VARCHAR(15) NOT NULL,
-	[kraj_pochodzenia] VARCHAR (15) NOT NULL
+	[IdSamochodu] INT NOT NULL PRIMARY KEY IDENTITY,
+	[IdModelu] INT NOT NULL FOREIGN KEY REFERENCES ModeleSamochodow(IdModelu) ON DELETE CASCADE ON UPDATE CASCADE,
+	[RokProdukcji] INT NOT NULL ,
+	[Przebieg] INT NOT NULL,
+	[Pojemnosc] INT NOT NULL,
+	[RodzajPaliwa] VARCHAR(10) NOT NULL,
+	[SkrzyniaBiegow] VARCHAR(10) NOT NULL,
+	[Bezwypadkowy] BIT NOT NULL,
+	[DataPrzegladu] date NOT NULL,
+	[DataUbezpieczenia] date NOT NULL,
+	[DataPzyjecia] date NOT NULL,
+	[Kolor] varchar(15) NOT NULL,
+	[NrRejestracyjny] VARCHAR(7) NOT NULL,
+	[IdKlienta] INT FOREIGN KEY REFERENCES Klienci(IdKlienta) ON DELETE CASCADE ON UPDATE CASCADE,
+	[Cena] DECIMAL NOT NULL,
+	[LiczbaDrzwi] INT NOT NULL,
+	[RodzajNadwozia] VARCHAR(15) NOT NULL,
+	[KrajPochodzenia] VARCHAR (15) NOT NULL
 	)
 
 

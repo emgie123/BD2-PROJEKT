@@ -39,10 +39,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -112,12 +122,56 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DB\Adres.cs">
+      <DependentUpon>Bd2KomisEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\Bd2KomisEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Bd2KomisEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\Bd2KomisEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Bd2KomisEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\Bd2KomisEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Bd2KomisEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\DaneSamochodu.cs">
+      <DependentUpon>Bd2KomisEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\Klienci.cs">
+      <DependentUpon>Bd2KomisEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\MarkiSamochodow.cs">
+      <DependentUpon>Bd2KomisEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\ModeleSamochodow.cs">
+      <DependentUpon>Bd2KomisEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\WyposazenieDodatkowe.cs">
+      <DependentUpon>Bd2KomisEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\ZalaczoneDokumenty.cs">
+      <DependentUpon>Bd2KomisEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="App_Data\Bd2KomisBD.mdf" />
+    <Content Include="App_Data\Bd2KomisBD_log.ldf">
+      <DependentUpon>Bd2KomisBD.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\Bd2KomisDB.mdf" />
+    <Content Include="App_Data\Bd2KomisDB_log.ldf">
+      <DependentUpon>Bd2KomisDB.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -131,6 +185,25 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <EntityDeploy Include="Models\DB\Bd2KomisEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Bd2KomisEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DB\Bd2KomisEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Bd2KomisEntities.edmx</DependentUpon>
+      <LastGenOutput>Bd2KomisEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DB\Bd2KomisEntities.edmx.diagram">
+      <DependentUpon>Bd2KomisEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\DB\Bd2KomisEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Bd2KomisEntities.edmx</DependentUpon>
+      <LastGenOutput>Bd2KomisEntities.cs</LastGenOutput>
+    </Content>
+    <None Include="Properties\PublishProfiles\bd2 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\bd2 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Images\bmw_f10_carousel.jpg" />
     <Content Include="Images\bmw_schnitzer_carousel.jpg" />
@@ -154,10 +227,13 @@
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Partials\NavbarTopPartial.cshtml" />
+    <Content Include="Views\Partials\NavbarLeftPartial.cshtml" />
+    <Content Include="Views\Partials\HomePageCarouselPartial.cshtml" />
+    <Content Include="Views\Partials\ThumbnailPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

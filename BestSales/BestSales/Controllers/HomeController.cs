@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BestSales.Models.DB;
 
 namespace BestSales.Controllers
 {
@@ -13,6 +15,7 @@ namespace BestSales.Controllers
 
         public ActionResult Index()
         {
+    
             return View();
         }
 

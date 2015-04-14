@@ -58,6 +58,10 @@ body{
 	color: #fff;
 	background-color: #b22424;
 }
+
+#navbar-top-row {
+    min-height: 100px;
+}
 /**********************DEFINICJA STYLU DLA GŁÓWNEJ TREŚCI********************/
 #main-content{
     margin-top:9rem;
@@ -110,10 +114,10 @@ a .panel-heading:active{
 
 .carousel-holder{
     margin:0 auto 2rem auto;
-    max-width:900px;
+    
 }
 .carousel-inner .item{
-    padding-left:42px;
+    padding-left: 20%;
 }
 
 /*********************************PRZECHODZIMY DO MINIATUREK - THUMBNAILS**********************************/
