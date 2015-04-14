@@ -42,7 +42,7 @@ CREATE TABLE [dbo].[Adres]
 	CREATE TABLE [dbo].[DaneSamochodu]
 (
 	[IdSamochodu] INT NOT NULL PRIMARY KEY IDENTITY,
-	[IdModelu] INT NOT NULL FOREIGN KEY REFERENCES ModeleSamochodow(IdModelu) ON DELETE CASCADE ON UPDATE CASCADE,
+	[IdMarki] INT NOT NULL FOREIGN KEY REFERENCES MarkiSamochodow(IdMarki) ON DELETE CASCADE ON UPDATE CASCADE,
 	[RokProdukcji] VARCHAR(4) NOT NULL ,
 	[Przebieg] VARCHAR(8) NOT NULL,
 	[Pojemnosc] VARCHAR(8) NOT NULL,
@@ -53,9 +53,9 @@ CREATE TABLE [dbo].[Adres]
 	[DataUbezpieczenia] date NOT NULL,
 	[DataPzyjecia] date NOT NULL,
 	[Kolor] varchar(25) NOT NULL,
-	[NrRejestracyjny] VARCHAR(7) NOT NULL,
+	[NrRejestracyjny] VARCHAR(10) NOT NULL,
 	[IdKlienta] INT FOREIGN KEY REFERENCES Klienci(IdKlienta) ON DELETE CASCADE ON UPDATE CASCADE,
-	[Cena] DECIMAL NOT NULL,
+	[Cena] VARCHAR(50) NOT NULL,
 	[LiczbaDrzwi] VARCHAR(2) NOT NULL,
 	[RodzajNadwozia] VARCHAR(25) NOT NULL,
 	[KrajPochodzenia] VARCHAR (25) NOT NULL

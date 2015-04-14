@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3dd7d02ec2dc46b7a39e410b16b3c54b" Name="Diagram1">
+        <EntityTypeShape EntityType="Bd2KomisDataBaseModel.Adres" Width="1.5" PointX="1.5" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd2KomisDataBaseModel.DaneSamochodu" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd2KomisDataBaseModel.Klienci" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd2KomisDataBaseModel.MarkiSamochodow" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd2KomisDataBaseModel.ModeleSamochodow" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd2KomisDataBaseModel.WyposazenieDodatkowe" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd2KomisDataBaseModel.ZalaczoneDokumenty" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <AssociationConnector Association="Bd2KomisDataBaseModel.FK__Klienci__IdAdres__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="Bd2KomisDataBaseModel.FK__DaneSamoc__IdKli__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="Bd2KomisDataBaseModel.FK__DaneSamoc__IdMar__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="Bd2KomisDataBaseModel.FK__Wyposazen__IdSam__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="Bd2KomisDataBaseModel.FK__Zalaczone__IdSam__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="Bd2KomisDataBaseModel.FK__ModeleSam__IdMar__4D94879B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

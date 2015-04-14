@@ -21,7 +21,7 @@ namespace BestSales.Models.DB
         }
     
         public int IdSamochodu { get; set; }
-        public int IdModelu { get; set; }
+        public int IdMarki { get; set; }
         public string RokProdukcji { get; set; }
         public string Przebieg { get; set; }
         public string Pojemnosc { get; set; }
@@ -34,13 +34,13 @@ namespace BestSales.Models.DB
         public string Kolor { get; set; }
         public string NrRejestracyjny { get; set; }
         public Nullable<int> IdKlienta { get; set; }
-        public decimal Cena { get; set; }
-        public int LiczbaDrzwi { get; set; }
+        public string Cena { get; set; }
+        public string LiczbaDrzwi { get; set; }
         public string RodzajNadwozia { get; set; }
         public string KrajPochodzenia { get; set; }
     
         public virtual Klienci Klienci { get; set; }
-        public virtual ModeleSamochodow ModeleSamochodow { get; set; }
+        public virtual MarkiSamochodow MarkiSamochodow { get; set; }
         public virtual ICollection<WyposazenieDodatkowe> WyposazenieDodatkowe { get; set; }
         public virtual ICollection<ZalaczoneDokumenty> ZalaczoneDokumenty { get; set; }
     }

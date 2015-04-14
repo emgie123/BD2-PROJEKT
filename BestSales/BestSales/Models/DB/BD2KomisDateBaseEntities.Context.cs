@@ -13,10 +13,10 @@ namespace BestSales.Models.DB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Bd2KomisBDEntities1 : DbContext
+    public partial class Bd2KomisDataBaseEntities : DbContext
     {
-        public Bd2KomisBDEntities1()
-            : base("name=Bd2KomisBDEntities1")
+        public Bd2KomisDataBaseEntities()
+            : base("name=Bd2KomisDataBaseEntities")
         {
         }
     

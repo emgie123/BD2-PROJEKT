@@ -123,40 +123,40 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\Adres.cs">
-      <DependentUpon>Bd2KomisEntities.tt</DependentUpon>
+      <DependentUpon>BD2KomisDateBaseEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DB\Bd2KomisEntities.Context.cs">
+    <Compile Include="Models\DB\BD2KomisDateBaseEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Bd2KomisEntities.Context.tt</DependentUpon>
+      <DependentUpon>BD2KomisDateBaseEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DB\Bd2KomisEntities.cs">
+    <Compile Include="Models\DB\BD2KomisDateBaseEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Bd2KomisEntities.tt</DependentUpon>
+      <DependentUpon>BD2KomisDateBaseEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DB\Bd2KomisEntities.Designer.cs">
+    <Compile Include="Models\DB\BD2KomisDateBaseEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Bd2KomisEntities.edmx</DependentUpon>
+      <DependentUpon>BD2KomisDateBaseEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\DaneSamochodu.cs">
-      <DependentUpon>Bd2KomisEntities.tt</DependentUpon>
+      <DependentUpon>BD2KomisDateBaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\Klienci.cs">
-      <DependentUpon>Bd2KomisEntities.tt</DependentUpon>
+      <DependentUpon>BD2KomisDateBaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\MarkiSamochodow.cs">
-      <DependentUpon>Bd2KomisEntities.tt</DependentUpon>
+      <DependentUpon>BD2KomisDateBaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\ModeleSamochodow.cs">
-      <DependentUpon>Bd2KomisEntities.tt</DependentUpon>
+      <DependentUpon>BD2KomisDateBaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\WyposazenieDodatkowe.cs">
-      <DependentUpon>Bd2KomisEntities.tt</DependentUpon>
+      <DependentUpon>BD2KomisDateBaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\ZalaczoneDokumenty.cs">
-      <DependentUpon>Bd2KomisEntities.tt</DependentUpon>
+      <DependentUpon>BD2KomisDateBaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -165,8 +165,16 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="App_Data\Bd2KomisBD.mdf" />
+    <Content Include="App_Data\Bd2KomisBDEntities.mdf" />
+    <Content Include="App_Data\Bd2KomisBDEntities_log.ldf">
+      <DependentUpon>Bd2KomisBDEntities.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\Bd2KomisBD_log.ldf">
       <DependentUpon>Bd2KomisBD.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\BD2KomisDataBase.mdf" />
+    <Content Include="App_Data\BD2KomisDataBase_log.ldf">
+      <DependentUpon>BD2KomisDataBase.mdf</DependentUpon>
     </Content>
     <Content Include="App_Data\Bd2KomisDB.mdf" />
     <Content Include="App_Data\Bd2KomisDB_log.ldf">
@@ -185,22 +193,25 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <EntityDeploy Include="Models\DB\Bd2KomisEntities.edmx">
+    <Content Include="Images\IdImages\1.png" />
+    <Content Include="Images\IdImages\2.png" />
+    <Content Include="Images\IdImages\3.png" />
+    <EntityDeploy Include="Models\DB\BD2KomisDateBaseEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Bd2KomisEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>BD2KomisDateBaseEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\DB\Bd2KomisEntities.Context.tt">
+    <Content Include="Models\DB\BD2KomisDateBaseEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Bd2KomisEntities.edmx</DependentUpon>
-      <LastGenOutput>Bd2KomisEntities.Context.cs</LastGenOutput>
+      <DependentUpon>BD2KomisDateBaseEntities.edmx</DependentUpon>
+      <LastGenOutput>BD2KomisDateBaseEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DB\Bd2KomisEntities.edmx.diagram">
-      <DependentUpon>Bd2KomisEntities.edmx</DependentUpon>
+    <Content Include="Models\DB\BD2KomisDateBaseEntities.edmx.diagram">
+      <DependentUpon>BD2KomisDateBaseEntities.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\DB\Bd2KomisEntities.tt">
+    <Content Include="Models\DB\BD2KomisDateBaseEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Bd2KomisEntities.edmx</DependentUpon>
-      <LastGenOutput>Bd2KomisEntities.cs</LastGenOutput>
+      <DependentUpon>BD2KomisDateBaseEntities.edmx</DependentUpon>
+      <LastGenOutput>BD2KomisDateBaseEntities.cs</LastGenOutput>
     </Content>
     <None Include="Properties\PublishProfiles\bd2 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\bd2 - Web Deploy.pubxml" />
@@ -226,11 +237,12 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\_Layouts\_BasicLayout.cshtml" />
     <Content Include="Views\Partials\NavbarTopPartial.cshtml" />
     <Content Include="Views\Partials\NavbarLeftPartial.cshtml" />
     <Content Include="Views\Partials\HomePageCarouselPartial.cshtml" />
     <Content Include="Views\Partials\ThumbnailPartial.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -238,6 +250,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

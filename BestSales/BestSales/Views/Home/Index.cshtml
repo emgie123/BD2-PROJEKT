@@ -1,87 +1,21 @@
-﻿@using System.Web.WebPages;
+﻿@model BestSales.Models.DB.Bd2KomisDataBaseEntities
 
 @{
-    ViewBag.Title = "Index";
+  
+    Layout = "~/Views/_Layouts/_BasicLayout.cshtml";
 }
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>BestSales - najlepszy komis samochodowy na Opolszczyźnie</title>
-        <meta http-equiv="content-type" content="text/html" charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" /> 
-        <link href="~/Content/custom.css" rel="stylesheet" type="text/css"/>
-    </head>
-<body>
-    <!--MENU GÓRNE-->
 
-    <div class="container-fluid">
-
-
-        <div id="navbar-top-row" class="row">
-            <header id="menu" class="navbar-fixed-top">
-                <div class="col-xs-12">
-                    @Html.Partial("~/Views/Partials/NavbarTopPartial.cshtml")
-                </div>
-            </header>
-        </div>
-
-
-        <!--GŁÓWNY WIERSZ ZAWIERAJĄCY MENU BOCZNE + KARUZELĘ + NAJNOWSZE OFERTY-->
-        <div id="body-row" class="row">
-            <!--MENU BOCZNE-->
-            <div class="col-xs-2">
-                @Html.Partial("~/Views/Partials/NavbarLeftPartial.cshtml");
-            </div>
-            <!--KARUZELA + NAJŚWIEŻSZE OFERTY-->
-            <div class="col-xs-10">
-                <!--KARUZELA-->
-                <div class="row carousel-holder">
-                    <div class=" col-xs-12">
-                        @Html.Partial("~/Views/Partials/HomePageCarouselPartial.cshtml");
-                    </div>
-                </div>
-                <!--NAJNOWSZE OFERTY-->
-                <div class="row">
-
-                    @{
-                        for (int i = 0; i < 3; i++)
-                        {
-                            @Html.Partial("~/Views/Partials/ThumbnailPartial.cshtml")
-                            ;
-                        }
-                    }
-
-
-                </div>
-
-                <div class="row">
-
-                    @{
-                        for (int i = 0; i < 3; i++)
-                        {
-                            @Html.Partial("~/Views/Partials/ThumbnailPartial.cshtml");
-                        }
-                    }
-
-
-                </div>
-            </div>
-        </div>
-
-
-
-        <!--KOLEJNY ELEMENT-->
-
+          <!--KARUZELA-->
+<div class="row carousel-holder">
+    <div class=" col-xs-12">
+        @Html.Partial("~/Views/Partials/HomePageCarouselPartial.cshtml");
     </div>
-    <!--STOPKA STRONY-->
-    <!--JAVASCRIPT-->
-    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
-    <script src="~/Scripts/bootstrap.js"></script>
-    <script>
+</div>
+<!--NAJNOWSZE OFERTY-->
+<div class="row">
 
-    </script>
-</body>
-</html>
-    
+            @Html.Partial("~/Views/Partials/ThumbnailPartial.cshtml",Model)
+            
+
+</div>

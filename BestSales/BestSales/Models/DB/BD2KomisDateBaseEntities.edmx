@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Bd2KomisBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Bd2KomisDataBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Adres">
           <Key>
             <PropertyRef Name="IdAdresu" />
@@ -19,7 +19,7 @@
             <PropertyRef Name="IdSamochodu" />
           </Key>
           <Property Name="IdSamochodu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdModelu" Type="int" Nullable="false" />
+          <Property Name="IdMarki" Type="int" Nullable="false" />
           <Property Name="RokProdukcji" Type="varchar" MaxLength="4" Nullable="false" />
           <Property Name="Przebieg" Type="varchar" MaxLength="8" Nullable="false" />
           <Property Name="Pojemnosc" Type="varchar" MaxLength="8" Nullable="false" />
@@ -30,10 +30,10 @@
           <Property Name="DataUbezpieczenia" Type="date" Nullable="false" />
           <Property Name="DataPzyjecia" Type="date" Nullable="false" />
           <Property Name="Kolor" Type="varchar" MaxLength="25" Nullable="false" />
-          <Property Name="NrRejestracyjny" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="NrRejestracyjny" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="IdKlienta" Type="int" />
-          <Property Name="Cena" Type="decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="LiczbaDrzwi" Type="int" Nullable="false" />
+          <Property Name="Cena" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LiczbaDrzwi" Type="varchar" MaxLength="2" Nullable="false" />
           <Property Name="RodzajNadwozia" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="KrajPochodzenia" Type="varchar" MaxLength="25" Nullable="false" />
         </EntityType>
@@ -56,7 +56,7 @@
           <Key>
             <PropertyRef Name="IdMarki" />
           </Key>
-          <Property Name="IdMarki" Type="int" Nullable="false" />
+          <Property Name="IdMarki" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Marka" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="ModeleSamochodow">
@@ -68,7 +68,7 @@
           <Property Name="IdMarki" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.WyposazenieDodatkowe' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISDATABASE.MDF.dbo.WyposazenieDodatkowe' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="WyposazenieDodatkowe">
           <Key>
             <PropertyRef Name="Abs" />
@@ -89,7 +89,7 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Wypos
           <Property Name="ZapasoweOpony" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.ZalaczoneDokumenty' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISDATABASE.MDF.dbo.ZalaczoneDokumenty' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ZalaczoneDokumenty">
           <Key>
             <PropertyRef Name="ZalaczonyDokument" />
@@ -97,7 +97,7 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
           <Property Name="IdSamochodu" Type="int" />
           <Property Name="ZalaczonyDokument" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK__DaneSamoc__IdKli__2F10007B">
+        <Association Name="FK__DaneSamoc__IdKli__5441852A">
           <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -111,21 +111,21 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DaneSamoc__IdMod__2E1BDC42">
-          <End Role="ModeleSamochodow" Type="Self.ModeleSamochodow" Multiplicity="1">
+        <Association Name="FK__DaneSamoc__IdMar__534D60F1">
+          <End Role="MarkiSamochodow" Type="Self.MarkiSamochodow" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="DaneSamochodu" Type="Self.DaneSamochodu" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ModeleSamochodow">
-              <PropertyRef Name="IdModelu" />
+            <Principal Role="MarkiSamochodow">
+              <PropertyRef Name="IdMarki" />
             </Principal>
             <Dependent Role="DaneSamochodu">
-              <PropertyRef Name="IdModelu" />
+              <PropertyRef Name="IdMarki" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Klienci__IdAdres__2B3F6F97">
+        <Association Name="FK__Klienci__IdAdres__5070F446">
           <End Role="Adres" Type="Self.Adres" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -139,7 +139,7 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ModeleSam__IdMar__286302EC">
+        <Association Name="FK__ModeleSam__IdMar__4D94879B">
           <End Role="MarkiSamochodow" Type="Self.MarkiSamochodow" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -153,7 +153,7 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Wyposazen__IdSam__30F848ED">
+        <Association Name="FK__Wyposazen__IdSam__5629CD9C">
           <End Role="DaneSamochodu" Type="Self.DaneSamochodu" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -167,7 +167,7 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zalaczone__IdSam__32E0915F">
+        <Association Name="FK__Zalaczone__IdSam__5812160E">
           <End Role="DaneSamochodu" Type="Self.DaneSamochodu" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -181,7 +181,7 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Bd2KomisBDModelStoreContainer">
+        <EntityContainer Name="Bd2KomisDataBaseModelStoreContainer">
           <EntitySet Name="Adres" EntityType="Self.Adres" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DaneSamochodu" EntityType="Self.DaneSamochodu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Klienci" EntityType="Self.Klienci" Schema="dbo" store:Type="Tables" />
@@ -205,27 +205,27 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
     [ZalaczoneDokumenty].[ZalaczonyDokument] AS [ZalaczonyDokument]
     FROM [dbo].[ZalaczoneDokumenty] AS [ZalaczoneDokumenty]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__DaneSamoc__IdKli__2F10007B" Association="Self.FK__DaneSamoc__IdKli__2F10007B">
+          <AssociationSet Name="FK__DaneSamoc__IdKli__5441852A" Association="Self.FK__DaneSamoc__IdKli__5441852A">
             <End Role="Klienci" EntitySet="Klienci" />
             <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
           </AssociationSet>
-          <AssociationSet Name="FK__DaneSamoc__IdMod__2E1BDC42" Association="Self.FK__DaneSamoc__IdMod__2E1BDC42">
-            <End Role="ModeleSamochodow" EntitySet="ModeleSamochodow" />
+          <AssociationSet Name="FK__DaneSamoc__IdMar__534D60F1" Association="Self.FK__DaneSamoc__IdMar__534D60F1">
+            <End Role="MarkiSamochodow" EntitySet="MarkiSamochodow" />
             <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
           </AssociationSet>
-          <AssociationSet Name="FK__Klienci__IdAdres__2B3F6F97" Association="Self.FK__Klienci__IdAdres__2B3F6F97">
+          <AssociationSet Name="FK__Klienci__IdAdres__5070F446" Association="Self.FK__Klienci__IdAdres__5070F446">
             <End Role="Adres" EntitySet="Adres" />
             <End Role="Klienci" EntitySet="Klienci" />
           </AssociationSet>
-          <AssociationSet Name="FK__ModeleSam__IdMar__286302EC" Association="Self.FK__ModeleSam__IdMar__286302EC">
+          <AssociationSet Name="FK__ModeleSam__IdMar__4D94879B" Association="Self.FK__ModeleSam__IdMar__4D94879B">
             <End Role="MarkiSamochodow" EntitySet="MarkiSamochodow" />
             <End Role="ModeleSamochodow" EntitySet="ModeleSamochodow" />
           </AssociationSet>
-          <AssociationSet Name="FK__Wyposazen__IdSam__30F848ED" Association="Self.FK__Wyposazen__IdSam__30F848ED">
+          <AssociationSet Name="FK__Wyposazen__IdSam__5629CD9C" Association="Self.FK__Wyposazen__IdSam__5629CD9C">
             <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
             <End Role="WyposazenieDodatkowe" EntitySet="WyposazenieDodatkowe" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zalaczone__IdSam__32E0915F" Association="Self.FK__Zalaczone__IdSam__32E0915F">
+          <AssociationSet Name="FK__Zalaczone__IdSam__5812160E" Association="Self.FK__Zalaczone__IdSam__5812160E">
             <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
             <End Role="ZalaczoneDokumenty" EntitySet="ZalaczoneDokumenty" />
           </AssociationSet>
@@ -234,7 +234,7 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Bd2KomisBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Bd2KomisDataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Adres">
           <Key>
             <PropertyRef Name="IdAdresu" />
@@ -243,14 +243,14 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
           <Property Name="Miejscowosc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="KodPocztowy" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Ulica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Klienci" Relationship="Self.FK__Klienci__IdAdres__2B3F6F97" FromRole="Adres" ToRole="Klienci" />
+          <NavigationProperty Name="Klienci" Relationship="Self.FK__Klienci__IdAdres__5070F446" FromRole="Adres" ToRole="Klienci" />
         </EntityType>
         <EntityType Name="DaneSamochodu">
           <Key>
             <PropertyRef Name="IdSamochodu" />
           </Key>
           <Property Name="IdSamochodu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdModelu" Type="Int32" Nullable="false" />
+          <Property Name="IdMarki" Type="Int32" Nullable="false" />
           <Property Name="RokProdukcji" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Przebieg" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Pojemnosc" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
@@ -261,16 +261,16 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
           <Property Name="DataUbezpieczenia" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DataPzyjecia" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Kolor" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NrRejestracyjny" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NrRejestracyjny" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdKlienta" Type="Int32" />
-          <Property Name="Cena" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="LiczbaDrzwi" Type="Int32" Nullable="false" />
+          <Property Name="Cena" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LiczbaDrzwi" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="RodzajNadwozia" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="KrajPochodzenia" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Klienci" Relationship="Self.FK__DaneSamoc__IdKli__2F10007B" FromRole="DaneSamochodu" ToRole="Klienci" />
-          <NavigationProperty Name="ModeleSamochodow" Relationship="Self.FK__DaneSamoc__IdMod__2E1BDC42" FromRole="DaneSamochodu" ToRole="ModeleSamochodow" />
-          <NavigationProperty Name="WyposazenieDodatkowe" Relationship="Self.FK__Wyposazen__IdSam__30F848ED" FromRole="DaneSamochodu" ToRole="WyposazenieDodatkowe" />
-          <NavigationProperty Name="ZalaczoneDokumenty" Relationship="Self.FK__Zalaczone__IdSam__32E0915F" FromRole="DaneSamochodu" ToRole="ZalaczoneDokumenty" />
+          <NavigationProperty Name="Klienci" Relationship="Self.FK__DaneSamoc__IdKli__5441852A" FromRole="DaneSamochodu" ToRole="Klienci" />
+          <NavigationProperty Name="MarkiSamochodow" Relationship="Self.FK__DaneSamoc__IdMar__534D60F1" FromRole="DaneSamochodu" ToRole="MarkiSamochodow" />
+          <NavigationProperty Name="WyposazenieDodatkowe" Relationship="Self.FK__Wyposazen__IdSam__5629CD9C" FromRole="DaneSamochodu" ToRole="WyposazenieDodatkowe" />
+          <NavigationProperty Name="ZalaczoneDokumenty" Relationship="Self.FK__Zalaczone__IdSam__5812160E" FromRole="DaneSamochodu" ToRole="ZalaczoneDokumenty" />
         </EntityType>
         <EntityType Name="Klienci">
           <Key>
@@ -286,16 +286,17 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
           <Property Name="Nip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="NrKonta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TypKlienta" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Adres" Relationship="Self.FK__Klienci__IdAdres__2B3F6F97" FromRole="Klienci" ToRole="Adres" />
-          <NavigationProperty Name="DaneSamochodu" Relationship="Self.FK__DaneSamoc__IdKli__2F10007B" FromRole="Klienci" ToRole="DaneSamochodu" />
+          <NavigationProperty Name="Adres" Relationship="Self.FK__Klienci__IdAdres__5070F446" FromRole="Klienci" ToRole="Adres" />
+          <NavigationProperty Name="DaneSamochodu" Relationship="Self.FK__DaneSamoc__IdKli__5441852A" FromRole="Klienci" ToRole="DaneSamochodu" />
         </EntityType>
         <EntityType Name="MarkiSamochodow">
           <Key>
             <PropertyRef Name="IdMarki" />
           </Key>
-          <Property Name="IdMarki" Type="Int32" Nullable="false" />
+          <Property Name="IdMarki" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Marka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="ModeleSamochodow" Relationship="Self.FK__ModeleSam__IdMar__286302EC" FromRole="MarkiSamochodow" ToRole="ModeleSamochodow" />
+          <NavigationProperty Name="DaneSamochodu" Relationship="Self.FK__DaneSamoc__IdMar__534D60F1" FromRole="MarkiSamochodow" ToRole="DaneSamochodu" />
+          <NavigationProperty Name="ModeleSamochodow" Relationship="Self.FK__ModeleSam__IdMar__4D94879B" FromRole="MarkiSamochodow" ToRole="ModeleSamochodow" />
         </EntityType>
         <EntityType Name="ModeleSamochodow">
           <Key>
@@ -304,8 +305,7 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
           <Property Name="IdModelu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdMarki" Type="Int32" />
-          <NavigationProperty Name="DaneSamochodu" Relationship="Self.FK__DaneSamoc__IdMod__2E1BDC42" FromRole="ModeleSamochodow" ToRole="DaneSamochodu" />
-          <NavigationProperty Name="MarkiSamochodow" Relationship="Self.FK__ModeleSam__IdMar__286302EC" FromRole="ModeleSamochodow" ToRole="MarkiSamochodow" />
+          <NavigationProperty Name="MarkiSamochodow" Relationship="Self.FK__ModeleSam__IdMar__4D94879B" FromRole="ModeleSamochodow" ToRole="MarkiSamochodow" />
         </EntityType>
         <EntityType Name="WyposazenieDodatkowe">
           <Key>
@@ -325,7 +325,7 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
           <Property Name="Wspomaganie" Type="Boolean" Nullable="false" />
           <Property Name="Klimatyzacja" Type="Boolean" Nullable="false" />
           <Property Name="ZapasoweOpony" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="DaneSamochodu" Relationship="Self.FK__Wyposazen__IdSam__30F848ED" FromRole="WyposazenieDodatkowe" ToRole="DaneSamochodu" />
+          <NavigationProperty Name="DaneSamochodu" Relationship="Self.FK__Wyposazen__IdSam__5629CD9C" FromRole="WyposazenieDodatkowe" ToRole="DaneSamochodu" />
         </EntityType>
         <EntityType Name="ZalaczoneDokumenty">
           <Key>
@@ -333,9 +333,9 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
           </Key>
           <Property Name="IdSamochodu" Type="Int32" />
           <Property Name="ZalaczonyDokument" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="DaneSamochodu" Relationship="Self.FK__Zalaczone__IdSam__32E0915F" FromRole="ZalaczoneDokumenty" ToRole="DaneSamochodu" />
+          <NavigationProperty Name="DaneSamochodu" Relationship="Self.FK__Zalaczone__IdSam__5812160E" FromRole="ZalaczoneDokumenty" ToRole="DaneSamochodu" />
         </EntityType>
-        <Association Name="FK__Klienci__IdAdres__2B3F6F97">
+        <Association Name="FK__Klienci__IdAdres__5070F446">
           <End Role="Adres" Type="Self.Adres" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -349,7 +349,7 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DaneSamoc__IdKli__2F10007B">
+        <Association Name="FK__DaneSamoc__IdKli__5441852A">
           <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -363,21 +363,21 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DaneSamoc__IdMod__2E1BDC42">
-          <End Role="ModeleSamochodow" Type="Self.ModeleSamochodow" Multiplicity="1">
+        <Association Name="FK__DaneSamoc__IdMar__534D60F1">
+          <End Role="MarkiSamochodow" Type="Self.MarkiSamochodow" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="DaneSamochodu" Type="Self.DaneSamochodu" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ModeleSamochodow">
-              <PropertyRef Name="IdModelu" />
+            <Principal Role="MarkiSamochodow">
+              <PropertyRef Name="IdMarki" />
             </Principal>
             <Dependent Role="DaneSamochodu">
-              <PropertyRef Name="IdModelu" />
+              <PropertyRef Name="IdMarki" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Wyposazen__IdSam__30F848ED">
+        <Association Name="FK__Wyposazen__IdSam__5629CD9C">
           <End Role="DaneSamochodu" Type="Self.DaneSamochodu" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -391,7 +391,7 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zalaczone__IdSam__32E0915F">
+        <Association Name="FK__Zalaczone__IdSam__5812160E">
           <End Role="DaneSamochodu" Type="Self.DaneSamochodu" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -405,7 +405,7 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ModeleSam__IdMar__286302EC">
+        <Association Name="FK__ModeleSam__IdMar__4D94879B">
           <End Role="MarkiSamochodow" Type="Self.MarkiSamochodow" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -419,7 +419,7 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Bd2KomisBDEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Bd2KomisDataBaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Adres" EntityType="Self.Adres" />
           <EntitySet Name="DaneSamochodu" EntityType="Self.DaneSamochodu" />
           <EntitySet Name="Klienci" EntityType="Self.Klienci" />
@@ -427,27 +427,27 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
           <EntitySet Name="ModeleSamochodow" EntityType="Self.ModeleSamochodow" />
           <EntitySet Name="WyposazenieDodatkowe" EntityType="Self.WyposazenieDodatkowe" />
           <EntitySet Name="ZalaczoneDokumenty" EntityType="Self.ZalaczoneDokumenty" />
-          <AssociationSet Name="FK__Klienci__IdAdres__2B3F6F97" Association="Self.FK__Klienci__IdAdres__2B3F6F97">
+          <AssociationSet Name="FK__Klienci__IdAdres__5070F446" Association="Self.FK__Klienci__IdAdres__5070F446">
             <End Role="Adres" EntitySet="Adres" />
             <End Role="Klienci" EntitySet="Klienci" />
           </AssociationSet>
-          <AssociationSet Name="FK__DaneSamoc__IdKli__2F10007B" Association="Self.FK__DaneSamoc__IdKli__2F10007B">
+          <AssociationSet Name="FK__DaneSamoc__IdKli__5441852A" Association="Self.FK__DaneSamoc__IdKli__5441852A">
             <End Role="Klienci" EntitySet="Klienci" />
             <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
           </AssociationSet>
-          <AssociationSet Name="FK__DaneSamoc__IdMod__2E1BDC42" Association="Self.FK__DaneSamoc__IdMod__2E1BDC42">
-            <End Role="ModeleSamochodow" EntitySet="ModeleSamochodow" />
+          <AssociationSet Name="FK__DaneSamoc__IdMar__534D60F1" Association="Self.FK__DaneSamoc__IdMar__534D60F1">
+            <End Role="MarkiSamochodow" EntitySet="MarkiSamochodow" />
             <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
           </AssociationSet>
-          <AssociationSet Name="FK__Wyposazen__IdSam__30F848ED" Association="Self.FK__Wyposazen__IdSam__30F848ED">
+          <AssociationSet Name="FK__Wyposazen__IdSam__5629CD9C" Association="Self.FK__Wyposazen__IdSam__5629CD9C">
             <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
             <End Role="WyposazenieDodatkowe" EntitySet="WyposazenieDodatkowe" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zalaczone__IdSam__32E0915F" Association="Self.FK__Zalaczone__IdSam__32E0915F">
+          <AssociationSet Name="FK__Zalaczone__IdSam__5812160E" Association="Self.FK__Zalaczone__IdSam__5812160E">
             <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
             <End Role="ZalaczoneDokumenty" EntitySet="ZalaczoneDokumenty" />
           </AssociationSet>
-          <AssociationSet Name="FK__ModeleSam__IdMar__286302EC" Association="Self.FK__ModeleSam__IdMar__286302EC">
+          <AssociationSet Name="FK__ModeleSam__IdMar__4D94879B" Association="Self.FK__ModeleSam__IdMar__4D94879B">
             <End Role="MarkiSamochodow" EntitySet="MarkiSamochodow" />
             <End Role="ModeleSamochodow" EntitySet="ModeleSamochodow" />
           </AssociationSet>
@@ -457,9 +457,9 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Bd2KomisBDModelStoreContainer" CdmEntityContainer="Bd2KomisBDEntities1">
+        <EntityContainerMapping StorageEntityContainer="Bd2KomisDataBaseModelStoreContainer" CdmEntityContainer="Bd2KomisDataBaseEntities">
           <EntitySetMapping Name="Adres">
-            <EntityTypeMapping TypeName="Bd2KomisBDModel.Adres">
+            <EntityTypeMapping TypeName="Bd2KomisDataBaseModel.Adres">
               <MappingFragment StoreEntitySet="Adres">
                 <ScalarProperty Name="IdAdresu" ColumnName="IdAdresu" />
                 <ScalarProperty Name="Miejscowosc" ColumnName="Miejscowosc" />
@@ -469,10 +469,10 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DaneSamochodu">
-            <EntityTypeMapping TypeName="Bd2KomisBDModel.DaneSamochodu">
+            <EntityTypeMapping TypeName="Bd2KomisDataBaseModel.DaneSamochodu">
               <MappingFragment StoreEntitySet="DaneSamochodu">
                 <ScalarProperty Name="IdSamochodu" ColumnName="IdSamochodu" />
-                <ScalarProperty Name="IdModelu" ColumnName="IdModelu" />
+                <ScalarProperty Name="IdMarki" ColumnName="IdMarki" />
                 <ScalarProperty Name="RokProdukcji" ColumnName="RokProdukcji" />
                 <ScalarProperty Name="Przebieg" ColumnName="Przebieg" />
                 <ScalarProperty Name="Pojemnosc" ColumnName="Pojemnosc" />
@@ -493,7 +493,7 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Klienci">
-            <EntityTypeMapping TypeName="Bd2KomisBDModel.Klienci">
+            <EntityTypeMapping TypeName="Bd2KomisDataBaseModel.Klienci">
               <MappingFragment StoreEntitySet="Klienci">
                 <ScalarProperty Name="IdKlienta" ColumnName="IdKlienta" />
                 <ScalarProperty Name="Imie" ColumnName="Imie" />
@@ -509,7 +509,7 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MarkiSamochodow">
-            <EntityTypeMapping TypeName="Bd2KomisBDModel.MarkiSamochodow">
+            <EntityTypeMapping TypeName="Bd2KomisDataBaseModel.MarkiSamochodow">
               <MappingFragment StoreEntitySet="MarkiSamochodow">
                 <ScalarProperty Name="IdMarki" ColumnName="IdMarki" />
                 <ScalarProperty Name="Marka" ColumnName="Marka" />
@@ -517,7 +517,7 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ModeleSamochodow">
-            <EntityTypeMapping TypeName="Bd2KomisBDModel.ModeleSamochodow">
+            <EntityTypeMapping TypeName="Bd2KomisDataBaseModel.ModeleSamochodow">
               <MappingFragment StoreEntitySet="ModeleSamochodow">
                 <ScalarProperty Name="IdModelu" ColumnName="IdModelu" />
                 <ScalarProperty Name="Model" ColumnName="Model" />
@@ -526,7 +526,7 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="WyposazenieDodatkowe">
-            <EntityTypeMapping TypeName="Bd2KomisBDModel.WyposazenieDodatkowe">
+            <EntityTypeMapping TypeName="Bd2KomisDataBaseModel.WyposazenieDodatkowe">
               <MappingFragment StoreEntitySet="WyposazenieDodatkowe">
                 <ScalarProperty Name="IdSamochodu" ColumnName="IdSamochodu" />
                 <ScalarProperty Name="Abs" ColumnName="Abs" />
@@ -540,7 +540,7 @@ warning 6002: The table/view 'C:\USERS\MICHAL\DOCUMENTS\BD2KOMISBD.MDF.dbo.Zalac
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ZalaczoneDokumenty">
-            <EntityTypeMapping TypeName="Bd2KomisBDModel.ZalaczoneDokumenty">
+            <EntityTypeMapping TypeName="Bd2KomisDataBaseModel.ZalaczoneDokumenty">
               <MappingFragment StoreEntitySet="ZalaczoneDokumenty">
                 <ScalarProperty Name="IdSamochodu" ColumnName="IdSamochodu" />
                 <ScalarProperty Name="ZalaczonyDokument" ColumnName="ZalaczonyDokument" />
