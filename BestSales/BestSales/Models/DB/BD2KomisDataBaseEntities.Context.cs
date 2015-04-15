@@ -18,8 +18,9 @@ namespace BestSales.Models.DB
     public partial class DB2KomisDataBaseEntities : DbContext
     {
         public DB2KomisDataBaseEntities()
-            : base("name=DB2KomisDataBaseEntities")
+            : base("Data Source=mssql5.webio.pl,2401;Initial Catalog=robson081192_BestSalesDB;Persist Security Info=True;User ID=robson081192_BestSalesDBUser;Password=Qwerty123*")
         {
+
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
