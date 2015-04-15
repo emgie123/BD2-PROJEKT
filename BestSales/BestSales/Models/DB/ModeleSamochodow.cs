@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
-
 namespace BestSales.Models.DB
 {
     using System;
@@ -27,10 +25,5 @@ namespace BestSales.Models.DB
     
         public virtual ICollection<DaneSamochodu> DaneSamochodu { get; set; }
         public virtual MarkiSamochodow MarkiSamochodow { get; set; }
-
-        public bool DisplayCondition(Func<bool> method)
-        {
-            return method.Invoke();
-        }
     }
 }

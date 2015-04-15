@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
-
 namespace BestSales.Models.DB
 {
     using System;
@@ -46,7 +44,5 @@ namespace BestSales.Models.DB
         public virtual ModeleSamochodow ModeleSamochodow { get; set; }
         public virtual ICollection<WyposazenieDodatkowe> WyposazenieDodatkowe { get; set; }
         public virtual ICollection<ZalaczoneDokumenty> ZalaczoneDokumenty { get; set; }
-
-    
     }
 }

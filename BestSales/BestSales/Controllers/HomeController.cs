@@ -16,7 +16,7 @@ namespace BestSales.Controllers
 
             DB2KomisDataBaseEntities dbAccess = new DB2KomisDataBaseEntities
             {
-                CarDisplayContidion = (x, y) => ((DaneSamochodu) x).Wyrozniony
+                CarDisplayCondtions = (x, y) => ((DaneSamochodu) x).Wyrozniony
             };
             // dbAccess.Database.ExecuteSqlCommand(query);
 

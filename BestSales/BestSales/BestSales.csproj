@@ -124,40 +124,40 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\Adres.cs">
-      <DependentUpon>BD2KomisDataBaseEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DB\BD2KomisDataBaseEntities.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD2KomisDataBaseEntities.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DB\BD2KomisDataBaseEntities.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD2KomisDataBaseEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DB\BD2KomisDataBaseEntities.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD2KomisDataBaseEntities.edmx</DependentUpon>
+      <DependentUpon>DB2KomisDataBaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\DaneSamochodu.cs">
-      <DependentUpon>BD2KomisDataBaseEntities.tt</DependentUpon>
+      <DependentUpon>DB2KomisDataBaseEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\DB2KomisDataBaseEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB2KomisDataBaseEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\DB2KomisDataBaseEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB2KomisDataBaseEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\DB2KomisDataBaseEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB2KomisDataBaseEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\Klienci.cs">
-      <DependentUpon>BD2KomisDataBaseEntities.tt</DependentUpon>
+      <DependentUpon>DB2KomisDataBaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\MarkiSamochodow.cs">
-      <DependentUpon>BD2KomisDataBaseEntities.tt</DependentUpon>
+      <DependentUpon>DB2KomisDataBaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\ModeleSamochodow.cs">
-      <DependentUpon>BD2KomisDataBaseEntities.tt</DependentUpon>
+      <DependentUpon>DB2KomisDataBaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\WyposazenieDodatkowe.cs">
-      <DependentUpon>BD2KomisDataBaseEntities.tt</DependentUpon>
+      <DependentUpon>DB2KomisDataBaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\ZalaczoneDokumenty.cs">
-      <DependentUpon>BD2KomisDataBaseEntities.tt</DependentUpon>
+      <DependentUpon>DB2KomisDataBaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -201,22 +201,22 @@
     <Content Include="Images\IdImages\1.png" />
     <Content Include="Images\IdImages\2.png" />
     <Content Include="Images\IdImages\3.png" />
-    <EntityDeploy Include="Models\DB\BD2KomisDataBaseEntities.edmx">
+    <EntityDeploy Include="Models\DB\DB2KomisDataBaseEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BD2KomisDataBaseEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>DB2KomisDataBaseEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\DB\BD2KomisDataBaseEntities.Context.tt">
+    <Content Include="Models\DB\DB2KomisDataBaseEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BD2KomisDataBaseEntities.edmx</DependentUpon>
-      <LastGenOutput>BD2KomisDataBaseEntities.Context.cs</LastGenOutput>
+      <DependentUpon>DB2KomisDataBaseEntities.edmx</DependentUpon>
+      <LastGenOutput>DB2KomisDataBaseEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DB\BD2KomisDataBaseEntities.edmx.diagram">
-      <DependentUpon>BD2KomisDataBaseEntities.edmx</DependentUpon>
+    <Content Include="Models\DB\DB2KomisDataBaseEntities.edmx.diagram">
+      <DependentUpon>DB2KomisDataBaseEntities.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\DB\BD2KomisDataBaseEntities.tt">
+    <Content Include="Models\DB\DB2KomisDataBaseEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BD2KomisDataBaseEntities.edmx</DependentUpon>
-      <LastGenOutput>BD2KomisDataBaseEntities.cs</LastGenOutput>
+      <DependentUpon>DB2KomisDataBaseEntities.edmx</DependentUpon>
+      <LastGenOutput>DB2KomisDataBaseEntities.cs</LastGenOutput>
     </Content>
     <None Include="Properties\PublishProfiles\bd2 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\bd2 - Web Deploy.pubxml" />

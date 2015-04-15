@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
-
 namespace BestSales.Models.DB
 {
     using System;
@@ -18,9 +16,8 @@ namespace BestSales.Models.DB
     public partial class DB2KomisDataBaseEntities : DbContext
     {
         public DB2KomisDataBaseEntities()
-            : base("Data Source=mssql5.webio.pl,2401;Initial Catalog=robson081192_BestSalesDB;Persist Security Info=True;User ID=robson081192_BestSalesDBUser;Password=Qwerty123*")
+            : base("name=DB2KomisDataBaseEntities")
         {
-
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -35,7 +32,6 @@ namespace BestSales.Models.DB
         public virtual DbSet<ModeleSamochodow> ModeleSamochodow { get; set; }
         public virtual DbSet<WyposazenieDodatkowe> WyposazenieDodatkowe { get; set; }
         public virtual DbSet<ZalaczoneDokumenty> ZalaczoneDokumenty { get; set; }
-        public Func<object,DB2KomisDataBaseEntities, bool> CarDisplayContidion;
-
+        public Func<object, DB2KomisDataBaseEntities,bool> CarDisplayCondtions;
     }
 }

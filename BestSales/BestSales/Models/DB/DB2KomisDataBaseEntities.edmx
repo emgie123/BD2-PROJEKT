@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DB2KomisDataBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="robson081192_BestSalesDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Adres">
           <Key>
             <PropertyRef Name="IdAdresu" />
@@ -69,7 +69,7 @@
           <Property Name="IdMarki" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\DROPBOX\INFORMATYKA\SEM VI\BAZY DANYCH II\PROJEKT\GITHUB\BESTSALES\BESTSALES\APP_DATA\DB2KOMISDATABASE.MDF.dbo.WyposazenieDodatkowe' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'robson081192_BestSalesDB.dbo.WyposazenieDodatkowe' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="WyposazenieDodatkowe">
           <Key>
             <PropertyRef Name="Abs" />
@@ -90,7 +90,7 @@ warning 6002: The table/view 'C:\DROPBOX\INFORMATYKA\SEM VI\BAZY DANYCH II\PROJE
           <Property Name="ZapasoweOpony" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\DROPBOX\INFORMATYKA\SEM VI\BAZY DANYCH II\PROJEKT\GITHUB\BESTSALES\BESTSALES\APP_DATA\DB2KOMISDATABASE.MDF.dbo.ZalaczoneDokumenty' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ZalaczoneDokumenty">
           <Key>
             <PropertyRef Name="ZalaczonyDokument" />
@@ -182,7 +182,7 @@ warning 6002: The table/view 'C:\DROPBOX\INFORMATYKA\SEM VI\BAZY DANYCH II\PROJE
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DB2KomisDataBaseModelStoreContainer">
+        <EntityContainer Name="robson081192_BestSalesDBModelStoreContainer">
           <EntitySet Name="Adres" EntityType="Self.Adres" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DaneSamochodu" EntityType="Self.DaneSamochodu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Klienci" EntityType="Self.Klienci" Schema="dbo" store:Type="Tables" />
@@ -235,7 +235,7 @@ warning 6002: The table/view 'C:\DROPBOX\INFORMATYKA\SEM VI\BAZY DANYCH II\PROJE
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DB2KomisDataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="robson081192_BestSalesDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Adres">
           <Key>
             <PropertyRef Name="IdAdresu" />
@@ -421,7 +421,7 @@ warning 6002: The table/view 'C:\DROPBOX\INFORMATYKA\SEM VI\BAZY DANYCH II\PROJE
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DB2KomisDataBaseEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="robson081192_BestSalesDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Adres" EntityType="Self.Adres" />
           <EntitySet Name="DaneSamochodu" EntityType="Self.DaneSamochodu" />
           <EntitySet Name="Klienci" EntityType="Self.Klienci" />
@@ -459,9 +459,9 @@ warning 6002: The table/view 'C:\DROPBOX\INFORMATYKA\SEM VI\BAZY DANYCH II\PROJE
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DB2KomisDataBaseModelStoreContainer" CdmEntityContainer="DB2KomisDataBaseEntities">
+        <EntityContainerMapping StorageEntityContainer="robson081192_BestSalesDBModelStoreContainer" CdmEntityContainer="robson081192_BestSalesDBEntities">
           <EntitySetMapping Name="Adres">
-            <EntityTypeMapping TypeName="DB2KomisDataBaseModel.Adres">
+            <EntityTypeMapping TypeName="robson081192_BestSalesDBModel.Adres">
               <MappingFragment StoreEntitySet="Adres">
                 <ScalarProperty Name="IdAdresu" ColumnName="IdAdresu" />
                 <ScalarProperty Name="Miejscowosc" ColumnName="Miejscowosc" />
@@ -471,7 +471,7 @@ warning 6002: The table/view 'C:\DROPBOX\INFORMATYKA\SEM VI\BAZY DANYCH II\PROJE
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DaneSamochodu">
-            <EntityTypeMapping TypeName="DB2KomisDataBaseModel.DaneSamochodu">
+            <EntityTypeMapping TypeName="robson081192_BestSalesDBModel.DaneSamochodu">
               <MappingFragment StoreEntitySet="DaneSamochodu">
                 <ScalarProperty Name="IdSamochodu" ColumnName="IdSamochodu" />
                 <ScalarProperty Name="IdModelu" ColumnName="IdModelu" />
@@ -496,7 +496,7 @@ warning 6002: The table/view 'C:\DROPBOX\INFORMATYKA\SEM VI\BAZY DANYCH II\PROJE
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Klienci">
-            <EntityTypeMapping TypeName="DB2KomisDataBaseModel.Klienci">
+            <EntityTypeMapping TypeName="robson081192_BestSalesDBModel.Klienci">
               <MappingFragment StoreEntitySet="Klienci">
                 <ScalarProperty Name="IdKlienta" ColumnName="IdKlienta" />
                 <ScalarProperty Name="Imie" ColumnName="Imie" />
@@ -512,7 +512,7 @@ warning 6002: The table/view 'C:\DROPBOX\INFORMATYKA\SEM VI\BAZY DANYCH II\PROJE
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MarkiSamochodow">
-            <EntityTypeMapping TypeName="DB2KomisDataBaseModel.MarkiSamochodow">
+            <EntityTypeMapping TypeName="robson081192_BestSalesDBModel.MarkiSamochodow">
               <MappingFragment StoreEntitySet="MarkiSamochodow">
                 <ScalarProperty Name="IdMarki" ColumnName="IdMarki" />
                 <ScalarProperty Name="Marka" ColumnName="Marka" />
@@ -520,7 +520,7 @@ warning 6002: The table/view 'C:\DROPBOX\INFORMATYKA\SEM VI\BAZY DANYCH II\PROJE
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ModeleSamochodow">
-            <EntityTypeMapping TypeName="DB2KomisDataBaseModel.ModeleSamochodow">
+            <EntityTypeMapping TypeName="robson081192_BestSalesDBModel.ModeleSamochodow">
               <MappingFragment StoreEntitySet="ModeleSamochodow">
                 <ScalarProperty Name="IdModelu" ColumnName="IdModelu" />
                 <ScalarProperty Name="Model" ColumnName="Model" />
@@ -529,7 +529,7 @@ warning 6002: The table/view 'C:\DROPBOX\INFORMATYKA\SEM VI\BAZY DANYCH II\PROJE
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="WyposazenieDodatkowe">
-            <EntityTypeMapping TypeName="DB2KomisDataBaseModel.WyposazenieDodatkowe">
+            <EntityTypeMapping TypeName="robson081192_BestSalesDBModel.WyposazenieDodatkowe">
               <MappingFragment StoreEntitySet="WyposazenieDodatkowe">
                 <ScalarProperty Name="IdSamochodu" ColumnName="IdSamochodu" />
                 <ScalarProperty Name="Abs" ColumnName="Abs" />
@@ -543,7 +543,7 @@ warning 6002: The table/view 'C:\DROPBOX\INFORMATYKA\SEM VI\BAZY DANYCH II\PROJE
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ZalaczoneDokumenty">
-            <EntityTypeMapping TypeName="DB2KomisDataBaseModel.ZalaczoneDokumenty">
+            <EntityTypeMapping TypeName="robson081192_BestSalesDBModel.ZalaczoneDokumenty">
               <MappingFragment StoreEntitySet="ZalaczoneDokumenty">
                 <ScalarProperty Name="IdSamochodu" ColumnName="IdSamochodu" />
                 <ScalarProperty Name="ZalaczonyDokument" ColumnName="ZalaczonyDokument" />
