@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+
+
 namespace BestSales.Models.DB
 {
     using System;
@@ -14,10 +16,21 @@ namespace BestSales.Models.DB
     
     public partial class ModeleSamochodow
     {
+        public ModeleSamochodow()
+        {
+            this.DaneSamochodu = new HashSet<DaneSamochodu>();
+        }
+    
         public int IdModelu { get; set; }
         public string Model { get; set; }
         public Nullable<int> IdMarki { get; set; }
     
+        public virtual ICollection<DaneSamochodu> DaneSamochodu { get; set; }
         public virtual MarkiSamochodow MarkiSamochodow { get; set; }
+
+        public bool DisplayCondition(Func<bool> method)
+        {
+            return method.Invoke();
+        }
     }
 }

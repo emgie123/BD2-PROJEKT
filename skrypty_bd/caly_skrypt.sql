@@ -1,3 +1,6 @@
+
+	--drop table ZalaczoneDokumenty, WyposazenieDodatkowe, DaneSamochodu, Klienci, ModeleSamochodow, MarkiSamochodow, Adres
+	
 CREATE TABLE [dbo].[Adres]
 (
 	[IdAdresu] int NOT NULL PRIMARY KEY IDENTITY ,
@@ -38,11 +41,11 @@ CREATE TABLE [dbo].[Adres]
 	[TypKlienta] BIT NOT NULL,
 
 	)
-	
+
 	CREATE TABLE [dbo].[DaneSamochodu]
 (
 	[IdSamochodu] INT NOT NULL PRIMARY KEY IDENTITY,
-	[IdMarki] INT NOT NULL FOREIGN KEY REFERENCES MarkiSamochodow(IdMarki) ON DELETE CASCADE ON UPDATE CASCADE,
+	[IdModelu] INT NOT NULL FOREIGN KEY REFERENCES ModeleSamochodow(IdModelu) ON DELETE CASCADE ON UPDATE CASCADE,
 	[RokProdukcji] VARCHAR(4) NOT NULL ,
 	[Przebieg] VARCHAR(8) NOT NULL,
 	[Pojemnosc] VARCHAR(8) NOT NULL,
@@ -58,7 +61,8 @@ CREATE TABLE [dbo].[Adres]
 	[Cena] VARCHAR(50) NOT NULL,
 	[LiczbaDrzwi] VARCHAR(2) NOT NULL,
 	[RodzajNadwozia] VARCHAR(25) NOT NULL,
-	[KrajPochodzenia] VARCHAR (25) NOT NULL
+	[KrajPochodzenia] VARCHAR (25) NOT NULL,
+	[Wyrozniony] Bit NOT NULL
 	)
 
 	

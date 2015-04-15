@@ -119,44 +119,45 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OffersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\Adres.cs">
-      <DependentUpon>BD2KomisDateBaseEntities.tt</DependentUpon>
+      <DependentUpon>BD2KomisDataBaseEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DB\BD2KomisDateBaseEntities.Context.cs">
+    <Compile Include="Models\DB\BD2KomisDataBaseEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BD2KomisDateBaseEntities.Context.tt</DependentUpon>
+      <DependentUpon>BD2KomisDataBaseEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DB\BD2KomisDateBaseEntities.cs">
+    <Compile Include="Models\DB\BD2KomisDataBaseEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BD2KomisDateBaseEntities.tt</DependentUpon>
+      <DependentUpon>BD2KomisDataBaseEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DB\BD2KomisDateBaseEntities.Designer.cs">
+    <Compile Include="Models\DB\BD2KomisDataBaseEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BD2KomisDateBaseEntities.edmx</DependentUpon>
+      <DependentUpon>BD2KomisDataBaseEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\DaneSamochodu.cs">
-      <DependentUpon>BD2KomisDateBaseEntities.tt</DependentUpon>
+      <DependentUpon>BD2KomisDataBaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\Klienci.cs">
-      <DependentUpon>BD2KomisDateBaseEntities.tt</DependentUpon>
+      <DependentUpon>BD2KomisDataBaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\MarkiSamochodow.cs">
-      <DependentUpon>BD2KomisDateBaseEntities.tt</DependentUpon>
+      <DependentUpon>BD2KomisDataBaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\ModeleSamochodow.cs">
-      <DependentUpon>BD2KomisDateBaseEntities.tt</DependentUpon>
+      <DependentUpon>BD2KomisDataBaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\WyposazenieDodatkowe.cs">
-      <DependentUpon>BD2KomisDateBaseEntities.tt</DependentUpon>
+      <DependentUpon>BD2KomisDataBaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\ZalaczoneDokumenty.cs">
-      <DependentUpon>BD2KomisDateBaseEntities.tt</DependentUpon>
+      <DependentUpon>BD2KomisDataBaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -180,6 +181,10 @@
     <Content Include="App_Data\Bd2KomisDB_log.ldf">
       <DependentUpon>Bd2KomisDB.mdf</DependentUpon>
     </Content>
+    <Content Include="App_Data\DB2KomisDataBase.mdf" />
+    <Content Include="App_Data\DB2KomisDataBase_log.ldf">
+      <DependentUpon>DB2KomisDataBase.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -196,22 +201,22 @@
     <Content Include="Images\IdImages\1.png" />
     <Content Include="Images\IdImages\2.png" />
     <Content Include="Images\IdImages\3.png" />
-    <EntityDeploy Include="Models\DB\BD2KomisDateBaseEntities.edmx">
+    <EntityDeploy Include="Models\DB\BD2KomisDataBaseEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BD2KomisDateBaseEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>BD2KomisDataBaseEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\DB\BD2KomisDateBaseEntities.Context.tt">
+    <Content Include="Models\DB\BD2KomisDataBaseEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BD2KomisDateBaseEntities.edmx</DependentUpon>
-      <LastGenOutput>BD2KomisDateBaseEntities.Context.cs</LastGenOutput>
+      <DependentUpon>BD2KomisDataBaseEntities.edmx</DependentUpon>
+      <LastGenOutput>BD2KomisDataBaseEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DB\BD2KomisDateBaseEntities.edmx.diagram">
-      <DependentUpon>BD2KomisDateBaseEntities.edmx</DependentUpon>
+    <Content Include="Models\DB\BD2KomisDataBaseEntities.edmx.diagram">
+      <DependentUpon>BD2KomisDataBaseEntities.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\DB\BD2KomisDateBaseEntities.tt">
+    <Content Include="Models\DB\BD2KomisDataBaseEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BD2KomisDateBaseEntities.edmx</DependentUpon>
-      <LastGenOutput>BD2KomisDateBaseEntities.cs</LastGenOutput>
+      <DependentUpon>BD2KomisDataBaseEntities.edmx</DependentUpon>
+      <LastGenOutput>BD2KomisDataBaseEntities.cs</LastGenOutput>
     </Content>
     <None Include="Properties\PublishProfiles\bd2 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\bd2 - Web Deploy.pubxml" />
@@ -224,6 +229,7 @@
     <Content Include="Images\welcome_carousel.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\fluidvids.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery.js" />
@@ -241,8 +247,12 @@
     <Content Include="Views\Partials\NavbarTopPartial.cshtml" />
     <Content Include="Views\Partials\NavbarLeftPartial.cshtml" />
     <Content Include="Views\Partials\HomePageCarouselPartial.cshtml" />
-    <Content Include="Views\Partials\ThumbnailPartial.cshtml" />
+    <Content Include="Views\Partials\ThumbnailsPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Map.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Offers\Offers.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

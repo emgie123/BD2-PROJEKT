@@ -42,7 +42,7 @@ insert into MarkiSamochodow values('Maseratti')
 insert into MarkiSamochodow values('Peugeot')
 
 
-insert into ModeleSamochodow values ('Passat',1)
+insert into ModeleSamochodow values ('Passat',1) 
 insert into ModeleSamochodow values ('Bora',1)
 insert into ModeleSamochodow values ('Polo',1)
 insert into ModeleSamochodow values ('Touran',1)
@@ -56,13 +56,13 @@ insert into ModeleSamochodow values ('A4',3)
 insert into ModeleSamochodow values ('A6',3)
 insert into ModeleSamochodow values ('A8',3)
 
-
-insert into DaneSamochodu values (1,'1998','199 232','1899','diesel','manualna',1,'2015-01-02','2015-03-01','2015-01-01','czarny','OP23132',1,'19 999','5','Kombi','Polska')
-insert into DaneSamochodu values (1,'1994','434 331','1623','benzyna','manualna',1,'2015-02-01','2015-01-01','2014-12-12','czarny','OB23235',1,'8 549','5','Hatchback','Polska')
-insert into DaneSamochodu values (1,'1996','99 111','1599','benzyna','manualna',1,'2015-03-02','2015-01-01','2014-12-01','niebieski','OK32345',1,'6 549','3','Hatchback','Niemcy')
-insert into DaneSamochodu values (3,'2005','64 565','1899','diesel','manualna',1,'2014-03-02','2015-11-01','2014-12-01','niebieski','OK24335',1,'6 549','3','Hatchback','Niemcy')
-insert into DaneSamochodu values (2,'1988','3 232','1799','benzyna','manualna',1,'2015-03-02','2015-01-01','2014-12-01','szary','OPR32321',1,'6 549','3','sedan','Niemcy')
-insert into DaneSamochodu values (2,'1996','99 111','1599','benzyna','manualna',1,'2015-03-02','2015-01-01','2014-12-01','niebieski','OK24335',1,'6 549','3','Hatchback','Niemcy')
+--idModelu,rok,przebieg,pojemnosc,paliwo,skrzynia,bezwypadkowy?,data_przegladu,data,ubezpieczenia,dataprzyjecia,kolor,nrRej,idKlienta,Cena,liczbaDrzwi,rodzajNadwozia,kraj
+insert into DaneSamochodu values (1,'1998','199 232','1899','diesel','manualna',1,'2015-01-02','2015-03-01','2015-01-01','czarny','OP23132',1,'19 999','5','Kombi','Polska',1)
+insert into DaneSamochodu values (2,'1994','434 331','1623','benzyna','manualna',1,'2015-02-01','2015-01-01','2014-12-12','czarny','OB23235',1,'8 549','5','Hatchback','Polska',1)
+insert into DaneSamochodu values (3,'1996','99 111','1599','benzyna','manualna',1,'2015-03-02','2015-01-01','2014-12-01','niebieski','OK32345',1,'6 549','3','Hatchback','Niemcy',1)
+insert into DaneSamochodu values (9,'2005','64 565','1899','diesel','manualna',1,'2014-03-02','2015-11-01','2014-12-01','niebieski','OK24335',1,'6 549','3','Hatchback','Niemcy',1)
+insert into DaneSamochodu values (5,'1988','3 232','1799','benzyna','manualna',1,'2015-03-02','2015-01-01','2014-12-01','szary','OPR32321',1,'6 549','3','sedan','Niemcy',1)
+insert into DaneSamochodu values (6,'1996','99 111','1599','benzyna','manualna',1,'2015-03-02','2015-01-01','2014-12-01','niebieski','OK24335',1,'6 549','3','Hatchback','Niemcy',1)
 
 
 insert into WyposazenieDodatkowe values(1,1,1,1,1,1,0,0)

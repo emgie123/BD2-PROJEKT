@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Dropbox\Informatyka\SEM VI\Bazy danych II\Projekt\GitHub\BestSales\BestSales\Models\DB\BD2KomisDateBaseEntities.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Dropbox\Informatyka\SEM VI\Bazy danych II\Projekt\GitHub\BestSales\BestSales\Models\DB\BD2KomisDataBaseEntities.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

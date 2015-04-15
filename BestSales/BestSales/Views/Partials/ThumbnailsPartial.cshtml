@@ -1,8 +1,14 @@
-﻿@model BestSales.Models.DB.Bd2KomisDataBaseEntities
+﻿@using BestSales.Models.DB
+@model BestSales.Models.DB.DB2KomisDataBaseEntities
 
 @{
     foreach (var car in Model.DaneSamochodu)
     {
+        //sprawdza warunek wyświetlania auta
+        if (!Model.CarDisplayContidion(car,Model))
+        {
+            continue;
+        }
 
         <div class="col-xs-4">
             <div class="thumbnail">
@@ -15,8 +21,9 @@
                     </h4>
                     <p>
 
-                        Wspaniały @car.Kolor @car.LiczbaDrzwi drzwiowy @Model.MarkiSamochodow.First(x => x.IdMarki == car.IdMarki).Marka
-                        @(Model.ModeleSamochodow.First(x => x.IdMarki == car.IdMarki).Model). Pojemność @car.Pojemnosc cm3 @(car.RodzajPaliwa).
+                        Wspaniały @car.Kolor @car.LiczbaDrzwi drzwiowy
+                        @Model.MarkiSamochodow.First(x=>x.IdMarki==(Model.ModeleSamochodow.FirstOrDefault(y=>y.IdModelu==car.IdModelu).IdMarki)).Marka
+                        @(Model.ModeleSamochodow.First(x=>x.IdModelu==car.IdModelu).Model). Pojemność @car.Pojemnosc cm3 @(car.RodzajPaliwa).
                         Przebieg @car.Przebieg km, rok @car.RokProdukcji, skrzynia @(car.SkrzyniaBiegow).
                     </p>
                 </div>

@@ -11,9 +11,9 @@
             <div id="osobowe" class="panel-collapse collapse">
                 <div class="panel-body">
                     <div class="list-group">
-                        <a class="list-group-item">Audi</a>
-                        <a class="list-group-item">Bmw</a>
-                        <a class="list-group-item">Mercedes</a>
+                        @Html.ActionLink("Volkswagen","Offers","Offers",new {filter=1},new {@class="list-group-item"})
+                        @Html.ActionLink("Opel","Offers","Offers",new {filter=2},new {@class="list-group-item"})
+                        @Html.ActionLink("Audi","Offers","Offers",new {filter=3},new {@class="list-group-item"})
                     </div>
                 </div>
             </div>

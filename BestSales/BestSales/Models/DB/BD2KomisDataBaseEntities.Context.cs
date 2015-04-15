@@ -7,16 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+
+
 namespace BestSales.Models.DB
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Bd2KomisDataBaseEntities : DbContext
+    public partial class DB2KomisDataBaseEntities : DbContext
     {
-        public Bd2KomisDataBaseEntities()
-            : base("name=Bd2KomisDataBaseEntities")
+        public DB2KomisDataBaseEntities()
+            : base("name=DB2KomisDataBaseEntities")
         {
         }
     
@@ -32,5 +34,7 @@ namespace BestSales.Models.DB
         public virtual DbSet<ModeleSamochodow> ModeleSamochodow { get; set; }
         public virtual DbSet<WyposazenieDodatkowe> WyposazenieDodatkowe { get; set; }
         public virtual DbSet<ZalaczoneDokumenty> ZalaczoneDokumenty { get; set; }
+        public Func<object,DB2KomisDataBaseEntities, bool> CarDisplayContidion;
+
     }
 }

@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+
+
 namespace BestSales.Models.DB
 {
     using System;
@@ -21,7 +23,7 @@ namespace BestSales.Models.DB
         }
     
         public int IdSamochodu { get; set; }
-        public int IdMarki { get; set; }
+        public int IdModelu { get; set; }
         public string RokProdukcji { get; set; }
         public string Przebieg { get; set; }
         public string Pojemnosc { get; set; }
@@ -38,10 +40,13 @@ namespace BestSales.Models.DB
         public string LiczbaDrzwi { get; set; }
         public string RodzajNadwozia { get; set; }
         public string KrajPochodzenia { get; set; }
+        public bool Wyrozniony { get; set; }
     
         public virtual Klienci Klienci { get; set; }
-        public virtual MarkiSamochodow MarkiSamochodow { get; set; }
+        public virtual ModeleSamochodow ModeleSamochodow { get; set; }
         public virtual ICollection<WyposazenieDodatkowe> WyposazenieDodatkowe { get; set; }
         public virtual ICollection<ZalaczoneDokumenty> ZalaczoneDokumenty { get; set; }
+
+    
     }
 }

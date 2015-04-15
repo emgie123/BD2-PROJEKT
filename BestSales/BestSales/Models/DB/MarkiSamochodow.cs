@@ -16,14 +16,12 @@ namespace BestSales.Models.DB
     {
         public MarkiSamochodow()
         {
-            this.DaneSamochodu = new HashSet<DaneSamochodu>();
             this.ModeleSamochodow = new HashSet<ModeleSamochodow>();
         }
     
         public int IdMarki { get; set; }
         public string Marka { get; set; }
     
-        public virtual ICollection<DaneSamochodu> DaneSamochodu { get; set; }
         public virtual ICollection<ModeleSamochodow> ModeleSamochodow { get; set; }
     }
 }
