@@ -199,12 +199,21 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Images\IdImages\1.png" />
+    <Content Include="Images\IdImages\10.png" />
+    <Content Include="Images\IdImages\13.png" />
+    <Content Include="Images\IdImages\14.png" />
+    <Content Include="Images\IdImages\15.png" />
+    <Content Include="Images\IdImages\16.png" />
+    <Content Include="Images\IdImages\17.png" />
     <Content Include="Images\IdImages\2.png" />
     <Content Include="Images\IdImages\3.png" />
     <EntityDeploy Include="Models\DB\DB2KomisDataBaseEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DB2KomisDataBaseEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="Images\IdImages\7.png" />
+    <Content Include="Images\IdImages\8.png" />
+    <Content Include="Images\IdImages\9.png" />
     <Content Include="Models\DB\DB2KomisDataBaseEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DB2KomisDataBaseEntities.edmx</DependentUpon>

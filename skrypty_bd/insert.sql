@@ -56,6 +56,26 @@ insert into ModeleSamochodow values ('A4',3)
 insert into ModeleSamochodow values ('A6',3)
 insert into ModeleSamochodow values ('A8',3)
 
+insert into ModeleSamochodow values ('R420',28,'ciezarowy')
+insert into ModeleSamochodow values ('R480',28,'ciezarowy')
+insert into ModeleSamochodow values ('R500',28,'ciezarowy')
+insert into ModeleSamochodow values ('R560',28,'ciezarowy')
+
+insert into ModeleSamochodow values ('A3',27,'ciezarowy')
+insert into ModeleSamochodow values ('A4',27,'ciezarowy')
+insert into ModeleSamochodow values ('A6',27,'ciezarowy')
+insert into ModeleSamochodow values ('A8',27,'ciezarowy')
+
+insert into ModeleSamochodow values ('A3',29,'ciezarowy')
+insert into ModeleSamochodow values ('A4',29,'ciezarowy')
+insert into ModeleSamochodow values ('A6',29,'ciezarowy')
+insert into ModeleSamochodow values ('A8',29,'ciezarowy')
+
+insert into DaneSamochodu values (7,'2005','19 000','11705','diesel','manualna',1,'2015-01-02','2015-03-01','2015-01-01','niebieski','OPR123',2,'54 250','2','Truck','Polska',0)
+insert into DaneSamochodu values (8,'2011','710 000','12700','diesel','manualna',1,'2015-01-02','2015-03-01','2015-01-01','czerwony','OPR456',2,'158 999','5','Truck','Polska',1)
+insert into DaneSamochodu values (9,'2011','7100000','13500','diesel','manualna',1,'2015-01-02','2015-03-01','2015-01-01','czarny','OP23132',3,'209 000','5','Truck','Polska',0)
+insert into DaneSamochodu values (10,'2011','5123489','12500','diesel','manualna',1,'2015-01-02','2015-03-01','2015-01-01','czarny','OP23132',1,'235 000','5','Truck','Polska',0)
+
 --idModelu,rok,przebieg,pojemnosc,paliwo,skrzynia,bezwypadkowy?,data_przegladu,data,ubezpieczenia,dataprzyjecia,kolor,nrRej,idKlienta,Cena,liczbaDrzwi,rodzajNadwozia,kraj
 insert into DaneSamochodu values (1,'1998','199 232','1899','diesel','manualna',1,'2015-01-02','2015-03-01','2015-01-01','czarny','OP23132',1,'19 999','5','Kombi','Polska',1)
 insert into DaneSamochodu values (2,'1994','434 331','1623','benzyna','manualna',1,'2015-02-01','2015-01-01','2014-12-12','czarny','OB23235',1,'8 549','5','Hatchback','Polska',1)
