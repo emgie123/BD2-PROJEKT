@@ -138,3 +138,15 @@ a .panel-heading:active{
 
 
 /**********************************************cos tam******************************************/
+
+/********************************SKALOWANIE ELEMENTU IFRAME*************************************/
+iframe{
+    max-height:inherit;
+    max-width:inherit;
+}
+#iframe-holder{
+    max-width:500px;
+    max-height:400px;
+    /*padding:500px;    Majkel weź to tu sprawdź, bo iframe ma wysokość jaką podam mu w tym paddingu. Tylko jak ustawię na sztywno
+        to się już nie skaluje. A tak jak nie ustawię tego to iframe ma wysokość o ok 200px większą od szerokości */
+}
