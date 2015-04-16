@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using BestSales.Models.DB;
 
@@ -19,8 +16,15 @@ namespace BestSales.Controllers
 
             if (filter != null)
             {
-                dbAccess.CarDisplayCondtions = (x, y) => (y.MarkiSamochodow.First(z => z.IdMarki == (y.ModeleSamochodow.FirstOrDefault(
-                    v=> v.IdModelu == ((DaneSamochodu)x).IdModelu).IdMarki)).IdMarki == filter);
+                dbAccess.CarDisplayCondtions = (x, y) => ((y.MarkiSamochodow.First(z => z.IdMarki == (y.ModeleSamochodow.FirstOrDefault(
+                v=> v.IdModelu == ((DaneSamochodu)x).IdModelu).IdMarki)).IdMarki == filter)&&(y.ModeleSamochodow.First(h=>h.IdModelu == ((DaneSamochodu)x).IdModelu ).TypSamochodu=="osobowy"));
+              
+
+                
+                
+
+
+
             }
             else dbAccess.CarDisplayCondtions = (x, y) => true;
             

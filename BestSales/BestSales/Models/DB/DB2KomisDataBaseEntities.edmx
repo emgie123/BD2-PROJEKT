@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="robson081192_BestSalesDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="robson081192_BestSalesDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Adres">
           <Key>
             <PropertyRef Name="IdAdresu" />
@@ -67,6 +67,7 @@
           <Property Name="IdModelu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IdMarki" Type="int" />
+          <Property Name="TypSamochodu" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'robson081192_BestSalesDB.dbo.WyposazenieDodatkowe' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -182,7 +183,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="robson081192_BestSalesDBModelStoreContainer">
+        <EntityContainer Name="robson081192_BestSalesDBStoreContainer">
           <EntitySet Name="Adres" EntityType="Self.Adres" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DaneSamochodu" EntityType="Self.DaneSamochodu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Klienci" EntityType="Self.Klienci" Schema="dbo" store:Type="Tables" />
@@ -235,7 +236,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="robson081192_BestSalesDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="robson081192_BestSalesDB" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Adres">
           <Key>
             <PropertyRef Name="IdAdresu" />
@@ -306,6 +307,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
           <Property Name="IdModelu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdMarki" Type="Int32" />
+          <Property Name="TypSamochodu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="DaneSamochodu" Relationship="Self.FK__DaneSamoc__IdMod__1A14E395" FromRole="ModeleSamochodow" ToRole="DaneSamochodu" />
           <NavigationProperty Name="MarkiSamochodow" Relationship="Self.FK__ModeleSam__IdMar__145C0A3F" FromRole="ModeleSamochodow" ToRole="MarkiSamochodow" />
         </EntityType>
@@ -459,9 +461,9 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="robson081192_BestSalesDBModelStoreContainer" CdmEntityContainer="robson081192_BestSalesDBEntities">
+        <EntityContainerMapping StorageEntityContainer="robson081192_BestSalesDBStoreContainer" CdmEntityContainer="robson081192_BestSalesDBEntities">
           <EntitySetMapping Name="Adres">
-            <EntityTypeMapping TypeName="robson081192_BestSalesDBModel.Adres">
+            <EntityTypeMapping TypeName="robson081192_BestSalesDB.Adres">
               <MappingFragment StoreEntitySet="Adres">
                 <ScalarProperty Name="IdAdresu" ColumnName="IdAdresu" />
                 <ScalarProperty Name="Miejscowosc" ColumnName="Miejscowosc" />
@@ -471,7 +473,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DaneSamochodu">
-            <EntityTypeMapping TypeName="robson081192_BestSalesDBModel.DaneSamochodu">
+            <EntityTypeMapping TypeName="robson081192_BestSalesDB.DaneSamochodu">
               <MappingFragment StoreEntitySet="DaneSamochodu">
                 <ScalarProperty Name="IdSamochodu" ColumnName="IdSamochodu" />
                 <ScalarProperty Name="IdModelu" ColumnName="IdModelu" />
@@ -496,7 +498,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Klienci">
-            <EntityTypeMapping TypeName="robson081192_BestSalesDBModel.Klienci">
+            <EntityTypeMapping TypeName="robson081192_BestSalesDB.Klienci">
               <MappingFragment StoreEntitySet="Klienci">
                 <ScalarProperty Name="IdKlienta" ColumnName="IdKlienta" />
                 <ScalarProperty Name="Imie" ColumnName="Imie" />
@@ -512,7 +514,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MarkiSamochodow">
-            <EntityTypeMapping TypeName="robson081192_BestSalesDBModel.MarkiSamochodow">
+            <EntityTypeMapping TypeName="robson081192_BestSalesDB.MarkiSamochodow">
               <MappingFragment StoreEntitySet="MarkiSamochodow">
                 <ScalarProperty Name="IdMarki" ColumnName="IdMarki" />
                 <ScalarProperty Name="Marka" ColumnName="Marka" />
@@ -520,16 +522,17 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ModeleSamochodow">
-            <EntityTypeMapping TypeName="robson081192_BestSalesDBModel.ModeleSamochodow">
+            <EntityTypeMapping TypeName="robson081192_BestSalesDB.ModeleSamochodow">
               <MappingFragment StoreEntitySet="ModeleSamochodow">
                 <ScalarProperty Name="IdModelu" ColumnName="IdModelu" />
                 <ScalarProperty Name="Model" ColumnName="Model" />
                 <ScalarProperty Name="IdMarki" ColumnName="IdMarki" />
+                <ScalarProperty Name="TypSamochodu" ColumnName="TypSamochodu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="WyposazenieDodatkowe">
-            <EntityTypeMapping TypeName="robson081192_BestSalesDBModel.WyposazenieDodatkowe">
+            <EntityTypeMapping TypeName="robson081192_BestSalesDB.WyposazenieDodatkowe">
               <MappingFragment StoreEntitySet="WyposazenieDodatkowe">
                 <ScalarProperty Name="IdSamochodu" ColumnName="IdSamochodu" />
                 <ScalarProperty Name="Abs" ColumnName="Abs" />
@@ -543,7 +546,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ZalaczoneDokumenty">
-            <EntityTypeMapping TypeName="robson081192_BestSalesDBModel.ZalaczoneDokumenty">
+            <EntityTypeMapping TypeName="robson081192_BestSalesDB.ZalaczoneDokumenty">
               <MappingFragment StoreEntitySet="ZalaczoneDokumenty">
                 <ScalarProperty Name="IdSamochodu" ColumnName="IdSamochodu" />
                 <ScalarProperty Name="ZalaczonyDokument" ColumnName="ZalaczonyDokument" />

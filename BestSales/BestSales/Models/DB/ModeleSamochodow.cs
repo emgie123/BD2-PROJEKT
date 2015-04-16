@@ -22,6 +22,7 @@ namespace BestSales.Models.DB
         public int IdModelu { get; set; }
         public string Model { get; set; }
         public Nullable<int> IdMarki { get; set; }
+        public string TypSamochodu { get; set; }
     
         public virtual ICollection<DaneSamochodu> DaneSamochodu { get; set; }
         public virtual MarkiSamochodow MarkiSamochodow { get; set; }

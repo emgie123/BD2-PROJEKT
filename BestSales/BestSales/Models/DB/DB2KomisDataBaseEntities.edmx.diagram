@@ -4,20 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3f9f4afb7bbe4d0fa0db9f1c0ad3a19f" Name="Diagram1">
-        <EntityTypeShape EntityType="robson081192_BestSalesDBModel.Adres" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="robson081192_BestSalesDBModel.DaneSamochodu" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="robson081192_BestSalesDBModel.Klienci" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="robson081192_BestSalesDBModel.MarkiSamochodow" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="robson081192_BestSalesDBModel.ModeleSamochodow" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="robson081192_BestSalesDBModel.WyposazenieDodatkowe" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="robson081192_BestSalesDBModel.ZalaczoneDokumenty" Width="1.5" PointX="7.5" PointY="4.75" IsExpanded="true" />
-        <AssociationConnector Association="robson081192_BestSalesDBModel.FK__Klienci__IdAdres__173876EA" ManuallyRouted="false" />
-        <AssociationConnector Association="robson081192_BestSalesDBModel.FK__DaneSamoc__IdKli__1B0907CE" ManuallyRouted="false" />
-        <AssociationConnector Association="robson081192_BestSalesDBModel.FK__DaneSamoc__IdMod__1A14E395" ManuallyRouted="false" />
-        <AssociationConnector Association="robson081192_BestSalesDBModel.FK__Wyposazen__IdSam__1CF15040" ManuallyRouted="false" />
-        <AssociationConnector Association="robson081192_BestSalesDBModel.FK__Zalaczone__IdSam__1ED998B2" ManuallyRouted="false" />
-        <AssociationConnector Association="robson081192_BestSalesDBModel.FK__ModeleSam__IdMar__145C0A3F" ManuallyRouted="false" />
+      <Diagram DiagramId="36fffa73c6b84aba89caf06fcdc7d231" Name="Diagram1">
+        <EntityTypeShape EntityType="robson081192_BestSalesDB.Adres" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="robson081192_BestSalesDB.DaneSamochodu" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="robson081192_BestSalesDB.Klienci" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="robson081192_BestSalesDB.MarkiSamochodow" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="robson081192_BestSalesDB.ModeleSamochodow" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="robson081192_BestSalesDB.WyposazenieDodatkowe" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="robson081192_BestSalesDB.ZalaczoneDokumenty" Width="1.5" PointX="7.5" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="robson081192_BestSalesDB.FK__Klienci__IdAdres__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="robson081192_BestSalesDB.FK__DaneSamoc__IdKli__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="robson081192_BestSalesDB.FK__DaneSamoc__IdMod__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="robson081192_BestSalesDB.FK__Wyposazen__IdSam__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="robson081192_BestSalesDB.FK__Zalaczone__IdSam__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="robson081192_BestSalesDB.FK__ModeleSam__IdMar__145C0A3F" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -4,11 +4,13 @@
 @{
     foreach (var car in Model.DaneSamochodu)
     {
+    
         //sprawdza warunek wyświetlania auta
         if (!Model.CarDisplayCondtions(car,Model))
         {
             continue;
         }
+      
 
         <div class="col-xs-4">
             <div class="thumbnail">

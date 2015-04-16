@@ -22,7 +22,6 @@ namespace BestSales.Models.DB
     
         public int IdSamochodu { get; set; }
         public int IdModelu { get; set; }
-        public string TypSamochodu { get; set; }
         public string RokProdukcji { get; set; }
         public string Przebieg { get; set; }
         public string Pojemnosc { get; set; }

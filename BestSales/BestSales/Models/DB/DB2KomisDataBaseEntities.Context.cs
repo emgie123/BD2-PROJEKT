@@ -16,7 +16,7 @@ namespace BestSales.Models.DB
     public partial class DB2KomisDataBaseEntities : DbContext
     {
         public DB2KomisDataBaseEntities()
-            : base("name=DB2KomisDataBaseEntities")
+            : base("name=robson081192_BestSalesDBEntities")
         {
         }
     
@@ -32,6 +32,6 @@ namespace BestSales.Models.DB
         public virtual DbSet<ModeleSamochodow> ModeleSamochodow { get; set; }
         public virtual DbSet<WyposazenieDodatkowe> WyposazenieDodatkowe { get; set; }
         public virtual DbSet<ZalaczoneDokumenty> ZalaczoneDokumenty { get; set; }
-        public Func<object, DB2KomisDataBaseEntities,bool> CarDisplayCondtions;
+        public Func<object, DB2KomisDataBaseEntities, bool> CarDisplayCondtions;
     }
 }
