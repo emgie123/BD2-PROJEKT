@@ -1,6 +1,8 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
+using BestSales.Models.DbInsert;
 using BestSales.Models.DB;
 
 
@@ -13,6 +15,10 @@ namespace BestSales.Controllers
 
         public ActionResult Index()
         {
+
+         
+            DbInsert insert = new DbInsert();
+           // insert.AddRandomCar();
 
             DB2KomisDataBaseEntities dbAccess = new DB2KomisDataBaseEntities
             {

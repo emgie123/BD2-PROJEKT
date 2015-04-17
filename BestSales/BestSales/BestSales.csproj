@@ -123,6 +123,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DbInsert\DbInsert.cs" />
+    <Compile Include="Models\DbInsert\Factories.cs" />
+    <Compile Include="Models\DbInsert\InsertEnums.cs" />
+    <Compile Include="Models\DbInsert\RandomCarGenerator.cs" />
+    <Compile Include="Models\DbInsert\Veryfiers.cs" />
     <Compile Include="Models\DB\Adres.cs">
       <DependentUpon>DB2KomisDataBaseEntities.tt</DependentUpon>
     </Compile>

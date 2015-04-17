@@ -20,11 +20,6 @@ namespace BestSales.Controllers
                 v=> v.IdModelu == ((DaneSamochodu)x).IdModelu).IdMarki)).IdMarki == filter)&&(y.ModeleSamochodow.First(h=>h.IdModelu == ((DaneSamochodu)x).IdModelu ).TypSamochodu==category));
               
 
-                
-                
-
-
-
             }
             else dbAccess.CarDisplayCondtions = (x, y) => true;
             
