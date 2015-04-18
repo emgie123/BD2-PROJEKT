@@ -125,6 +125,7 @@
     </Compile>
     <Compile Include="Models\DbInsert\DbInsert.cs" />
     <Compile Include="Models\DbInsert\Factories.cs" />
+    <Compile Include="Models\DbInsert\ImageGenerator.cs" />
     <Compile Include="Models\DbInsert\InsertEnums.cs" />
     <Compile Include="Models\DbInsert\RandomCarGenerator.cs" />
     <Compile Include="Models\DbInsert\Veryfiers.cs" />
