@@ -19,6 +19,9 @@ namespace BestSales.Controllers
          
             DbInsert insert = new DbInsert();
            // insert.AddRandomCar();
+            ImageGenerator img = new ImageGenerator();
+            img.GetRandomImage("mercedes");
+
 
             DB2KomisDataBaseEntities dbAccess = new DB2KomisDataBaseEntities
             {
