@@ -1,6 +1,27 @@
-﻿@{
+﻿@using System.Web.Mvc.Ajax
+@{
     ViewBag.Title = "Contact";
     Layout = "~/Views/_Layouts/_BasicLayout.cshtml";
 }
 
-<h2>Contact</h2>
+<h2>O nas</h2>
+<div id="dev-desc">
+    <div class="col-xs-12 col-sm-8">
+        @Html.Partial("~/Views/Partials/ContactPartial.cshtml")
+
+    </div>
+
+    <div class="col-xs-12 col-sm-4">
+        <div id="user-select" class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Deweloperzy</h3>
+            </div>
+            <div class="panel-body">
+                <div class="list-group">
+                    @Ajax.ActionLink("Garbacz Michał", "ShowUser", "Home", new { userid = "1" }, new AjaxOptions { HttpMethod = "Get", UpdateTargetId = "userdetails-section" }, new { @class = "list-group-item" })
+                    @Ajax.ActionLink("Winkler Robert", "ShowUser", "Home", new { userid = "2" }, new AjaxOptions { HttpMethod = "Get", UpdateTargetId = "userdetails-section" }, new { @class = "list-group-item" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,5 @@
-﻿<nav class="navbar navbar-inverse" role="navigation" id="pasek_nawigacji">
+﻿
+<nav class="navbar navbar-inverse" role="navigation" id="pasek_nawigacji">
 
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moje-menu">
@@ -16,8 +17,8 @@
         <ul class="nav navbar-nav">
             <li>@Html.ActionLink("HOME", "Index", "Home")</li>
             <li>@Html.ActionLink("OFERTA", "Offers", "Offers")</li>
-            <li>@Html.ActionLink("MAPA DOJAZDU","Map","Home")</li>
-            <li>@Html.ActionLink("KONTAKT", "Contact", "Home")</li>
+            <li>@Html.ActionLink("MAPA DOJAZDU", "Map", "Home")</li>
+            <li>@Html.ActionLink("KONTAKT", "ShowUser", "Home", new { userid = "1" }, new { })</li>
         </ul>
     </div>
 

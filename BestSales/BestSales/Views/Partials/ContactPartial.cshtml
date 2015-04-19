@@ -1,0 +1,21 @@
+﻿@model BestSales.Models.UserInfo.User
+<div id="userdetails-section">
+    <img src="~/Images/UserIcons/@Model.ThumbnailName" alt="Miniaturka-zdjęcia" />
+    <h2>@Model.Name</h2>
+    <h4>@Model.Profession</h4>
+
+    <ul class="list-group">
+        @foreach (var detail in Model.Details)
+        {
+            <li class="list-group-item row">
+                <div class="col-sm-6"><b>@detail.Key</b></div>
+                <div class="col-sm-6">
+                    <b>
+                        <span class="glyphicon-home"></span>
+                        @detail.Value
+                    </b>
+                </div>
+            </li>
+        }
+    </ul>    
+</div>

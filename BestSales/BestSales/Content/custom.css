@@ -142,8 +142,37 @@ iframe{
     max-width:inherit;
 }
 #iframe-holder{
-    max-width:500px;
-    max-height:400px;
+    max-width:1000px;
+    max-height:550px;
     /*padding:500px;    Majkel weź to tu sprawdź, bo iframe ma wysokość jaką podam mu w tym paddingu. Tylko jak ustawię na sztywno
         to się już nie skaluje. A tak jak nie ustawię tego to iframe ma wysokość o ok 200px większą od szerokości */
+}
+/********************************FORMATOWANIE ZASTOSOWANE W ZAKŁADCE KONTAKT*************************************/
+
+#dev-desc h2 {
+    margin-bottom: 0;
+}
+#dev-desc h4 {
+    margin-top: 0;
+}
+li.list-group-item:nth-child(odd) {
+    background-color: #b22424;
+    color: #ffffff;
+}
+#user-select {
+        border-color: black;
+}
+#user-select.panel-default > .panel-heading {
+    background-color: #b22424;
+    border-color: black;
+    color: #ffffff;
+}
+#user-select.panel-default > .panel-body {
+    background-color: gray;
+    color: #b22424;
+}
+#user-select .panel-body .list-group-item:hover{
+    background-color: #b22424;
+    color: #ffffff;
+    border-color: black;
 }
