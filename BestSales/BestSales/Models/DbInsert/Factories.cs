@@ -7,6 +7,7 @@ namespace BestSales.Models.DbInsert
 {
     public static class Factories
     {
+        
         public static Dictionary<ModeleSamochodowEnum, int> ModelToBrand = new Dictionary<ModeleSamochodowEnum, int>()
         {   //VW
             {ModeleSamochodowEnum.Passat,1},
@@ -40,6 +41,21 @@ namespace BestSales.Models.DbInsert
             //DAF
             {ModeleSamochodowEnum.XF410,29},
             {ModeleSamochodowEnum.XFSSC105460,29},
+        };
+
+        public readonly static Dictionary<string, string> TranslateColour = new Dictionary<string, string>()
+        {
+            {"CZARNY","Black"},
+            {"BIAŁY","Black"},
+            {"GRANATOWY","Navy Blue"},
+            {"ŻÓŁTY","Yellow"},
+            {"SZARY","Gray"},
+            {"SREBRNY","Silver"},
+            {"NIEBIESKI","Blue"},
+            {"CZERWONY","Red"},
+            {"ZIELONY","Green"},
+            {"BRĄZOWY","Brown"},
+
         };
     }
 }

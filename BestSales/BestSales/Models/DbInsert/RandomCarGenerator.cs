@@ -49,6 +49,8 @@ namespace BestSales.Models.DbInsert
 
                  var nazwaModelu = dbAccess.ModeleSamochodow.First(x => x.IdModelu == idModelu).Model;
                  var nazwaMarki = dbAccess.MarkiSamochodow.First(x => x.IdMarki == idMarki).Marka;
+                 var kolor = Enum.GetName(typeof(KoloryEnum), (KoloryEnum)LosujLiczbe(Enum.GetNames(typeof(KoloryEnum)).Count())).ToLower();
+
 
                  query = (String.Format("{0} {1}", nazwaMarki, nazwaModelu));
 
@@ -58,7 +60,7 @@ namespace BestSales.Models.DbInsert
                  {
                      IdModelu = idModelu,
                      RokProdukcji = LosujLiczbe(2016, 1980).ToString(),
-                     Przebieg = LosujLiczbe(250000,4999).ToString(),
+                     Przebieg = LosujLiczbe(250000, 4999).ToString("### ### ###"),
                      Pojemnosc = LosujLiczbe(3000,700).ToString("### ### ###"),
                      RodzajPaliwa = Enum.GetName(typeof(RodzajePaliwaEnum), (RodzajePaliwaEnum)LosujLiczbe(Enum.GetNames(typeof(RodzajePaliwaEnum)).Count())).ToLower(),
                      SkrzyniaBiegow = Enum.GetName(typeof(SkrzynieBiegowEnum), (SkrzynieBiegowEnum)LosujLiczbe(Enum.GetNames(typeof(SkrzynieBiegowEnum)).Count())).ToLower(),
@@ -66,10 +68,10 @@ namespace BestSales.Models.DbInsert
                      DataPrzegladu = RandomDay(),
                      DataUbezpieczenia = RandomDay(),
                      DataPzyjecia = RandomDay(),
-                     Kolor = Enum.GetName(typeof(KoloryEnum), (KoloryEnum)LosujLiczbe(Enum.GetNames(typeof(KoloryEnum)).Count())).ToLower(),
+                     Kolor = kolor,
                      NrRejestracyjny = String.Format("{0}{1}{2}", (char)LosujLiczbe(91, 65), (char)LosujLiczbe(91, 65), LosujLiczbe(99999, 10000)),
                      IdKlienta = dbAccess.Klienci.Select(x => x.IdKlienta).ToList().ElementAt(LosujLiczbe(dbAccess.Klienci.Select(x => x.IdKlienta).ToList().Count)),
-                     Cena = LosujLiczbe(150000).ToString("### ### ###"),
+                     Cena = LosujLiczbe(100000).ToString("### ### ###"),
                      LiczbaDrzwi = ((int)((LiczbaDrzwiEnum)LosujLiczbe(Enum.GetNames(typeof(LiczbaDrzwiEnum)).Count(),2))).ToString().ToLower(),
                      RodzajNadwozia = Enum.GetName(typeof(RodzajNadwoziaEnum), (RodzajNadwoziaEnum)LosujLiczbe(Enum.GetNames(typeof(RodzajNadwoziaEnum)).Count())).ToLower(),
                      KrajPochodzenia = Enum.GetName(typeof(KrajePochodzeniaEnum), (KrajePochodzeniaEnum)LosujLiczbe(Enum.GetNames(typeof(KrajePochodzeniaEnum)).Count())),
@@ -97,7 +99,22 @@ namespace BestSales.Models.DbInsert
             return start.AddDays(_generator.Next(range)).Date;
         }
     
+         
+        public readonly Dictionary<string, string> TranslateColour = new Dictionary<string, string>()
+        {
+            {"CZARNY","Black"},
+            {"BIAŁY","Black"},
+            {"GRANATOWY","Navy Blue"},
+            {"ŻÓŁTY","Yellow"},
+            {"SZARY","Gray"},
+            {"SREBRNY","Silver"},
+            {"NIEBIESKI","Blue"},
+            {"CZERWONY","Red"},
+            {"ZIELONY","Green"},
+            {"BRĄZOWY","Brown"},
 
+        };
+    
 
     }
 }

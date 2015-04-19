@@ -18,15 +18,27 @@
                 <div class="caption">
                     <h4 class="pull-right">@car.Cena zł</h4>
                     <h4>
-                        <a href="#">Sprawdź!</a>
+                        @{
+                            var marka = Model.MarkiSamochodow.First(x => x.IdMarki == (Model.ModeleSamochodow.FirstOrDefault(y => y.IdModelu == car.IdModelu).IdMarki)).Marka;
+                            var model = (Model.ModeleSamochodow.First(x => x.IdModelu == car.IdModelu).Model);
+                            }
+                        @Html.ActionLink(String.Format("{0} {1}",marka,model),"#","#")
 
                     </h4>
                     <p>
 
-                        Wspaniały @car.Kolor @car.LiczbaDrzwi drzwiowy
-                        @Model.MarkiSamochodow.First(x=>x.IdMarki==(Model.ModeleSamochodow.FirstOrDefault(y=>y.IdModelu==car.IdModelu).IdMarki)).Marka
-                        @(Model.ModeleSamochodow.First(x=>x.IdModelu==car.IdModelu).Model). Pojemność @car.Pojemnosc cm3 @(car.RodzajPaliwa).
-                        Przebieg @car.Przebieg km, rok @car.RokProdukcji, skrzynia @(car.SkrzyniaBiegow).
+                        <ul>
+                            <li>Liczba drzwi: @car.LiczbaDrzwi</li>
+                            <li>Nadwozie: @car.RodzajNadwozia</li>
+                            <li>Skrzynia: @(car.SkrzyniaBiegow)</li>
+                            <li>Pojemność: @car.Pojemnosc cm3</li>
+                            <li>Przebieg: @car.Przebieg </li>
+                            <li>Rok produkcji: @car.RokProdukcji </li>
+                            <li>Rodzaj paliwa: @(car.RodzajPaliwa) </li>
+                            
+                        </ul>
+
+                    
                     </p>
                 </div>
                 <div class="ratings">

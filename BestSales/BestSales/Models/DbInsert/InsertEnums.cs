@@ -95,7 +95,6 @@ namespace BestSales.Models.DbInsert
        
         Czarny,
         Biały,
-        Fioletowy,
         Granatowy,
         Żółty,
         Szary,
@@ -109,8 +108,7 @@ namespace BestSales.Models.DbInsert
 
     public enum LiczbaDrzwiEnum
     {
-        Dwa=2,
-        Trzy,
+        Trzy=3,
         Cztery,
         Pięć
     }
@@ -122,9 +120,8 @@ namespace BestSales.Models.DbInsert
         Hatchback,
         Truck,
         LiftBack,
-        PickUp,
-        Kabriolet,
-        Minivan
+    
+      
     }
 
     public enum KrajePochodzeniaEnum 

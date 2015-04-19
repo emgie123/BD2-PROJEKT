@@ -18,7 +18,7 @@ namespace BestSales.Controllers
             if (filter != null)
             {
                 dbAccess.CarDisplayCondtions = (x, y) => ((y.MarkiSamochodow.First(z => z.IdMarki == (y.ModeleSamochodow.FirstOrDefault(
-                v=> v.IdModelu == ((DaneSamochodu)x).IdModelu).IdMarki)).IdMarki == filter)&&(y.ModeleSamochodow.First(h=>h.IdModelu == ((DaneSamochodu)x).IdModelu ).TypPojazdu==category));
+                v=> v.IdModelu == ((DaneSamochodu)x).IdModelu).IdMarki)).IdMarki == filter)&&(y.ModeleSamochodow.First(h=>h.IdModelu == ((DaneSamochodu)x).IdModelu ).TypPojazdu.ToUpper()==category.ToUpper()));
               
 
             }

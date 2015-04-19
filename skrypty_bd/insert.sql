@@ -14,7 +14,7 @@ insert into Klienci values('Artur','Borubar',4,'artur@borubar.pl','143-885-332',
 insert into Klienci values('Anna','Długa',5,'a@d.pl','434-111-222','5434564','','773323',1)
 
 
-insert into MarkiSamochodow values('VolksWagen')
+insert into MarkiSamochodow values('Volkswagen')
 insert into MarkiSamochodow values('Opel')
 insert into MarkiSamochodow values('Audi')
 insert into MarkiSamochodow values('Honda')
@@ -40,6 +40,11 @@ insert into MarkiSamochodow values('Fiat')
 insert into MarkiSamochodow values('Lancia')
 insert into MarkiSamochodow values('Maseratti')
 insert into MarkiSamochodow values('Peugeot')
+insert into MarkiSamochodow values('Mercedes')
+insert into MarkiSamochodow values('Scania')
+insert into MarkiSamochodow values('Daf')
+insert into MarkiSamochodow values('Tata')
+
 
 
 insert into ModeleSamochodow values ('Passat',1,'Osobowy') 

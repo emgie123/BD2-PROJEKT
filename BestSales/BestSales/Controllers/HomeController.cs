@@ -15,12 +15,13 @@ namespace BestSales.Controllers
 
         public ActionResult Index()
         {
-
+     
             DB2KomisDataBaseEntities dbAccess = new DB2KomisDataBaseEntities
             {
                 CarDisplayCondtions = (x, y) => ((DaneSamochodu) x).Wyrozniony
             };
-            
+
+   
             return View(dbAccess);
 
         }

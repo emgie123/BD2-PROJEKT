@@ -129,6 +129,11 @@ namespace BestSales.Models.DbInsert
 
         }
 
+        private void UploadPhoto()
+        {
+            throw new NotImplementedException("TODO");
+        }
+
    
 
 

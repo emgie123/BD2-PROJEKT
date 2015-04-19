@@ -33,6 +33,5 @@ namespace BestSales.Models.DB
         public virtual DbSet<WyposazenieDodatkowe> WyposazenieDodatkowe { get; set; }
         public virtual DbSet<ZalaczoneDokumenty> ZalaczoneDokumenty { get; set; }
         public Func<object, DB2KomisDataBaseEntities, bool> CarDisplayCondtions;
-
     }
 }

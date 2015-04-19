@@ -122,10 +122,7 @@ a .panel-heading:active{
 
 /*********************************PRZECHODZIMY DO MINIATUREK - THUMBNAILS**********************************/
 
-#main-content .thumbnail{
-    background-color:#000;
-    color:#fff;
-}
+
 
 .thumbnail .ratings p{
     display:inline;
@@ -133,7 +130,7 @@ a .panel-heading:active{
 
 .thumbnail .caption{
     overflow:hidden;
-    max-height:110px;
+   
 }
 
 
