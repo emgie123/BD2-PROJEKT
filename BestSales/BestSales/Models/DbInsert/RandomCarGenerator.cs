@@ -8,17 +8,18 @@ using BestSales.Models.DB;
 
 namespace BestSales.Models.DbInsert
 {
-     class RandomCarGenerator
+     public class RandomCarGenerator
     {
         private readonly Random _generator;
+         private ImageGenerator _img;
 
         public RandomCarGenerator()
             {
                 _generator= new Random();
+                _img = new ImageGenerator(); 
             }
 
-         //TODO metoda formatująca cenę i przebieg(spacje) (tj. 442, 1 439 , 13 043, 132 302, 1 323 043) ...
-         //TODO metoda zasysająca randomowe zdjecia z neta(dla merceda to haslo klucz mercedes itd :D) i wrzucajace je do odpowiedniego folderu
+       
         public void InsertRandomCar()
         {
 
@@ -33,19 +34,29 @@ namespace BestSales.Models.DbInsert
 
         }
 
+         public static string query;
 
          public DaneSamochodu ReturnRandomCar()
          {
              DaneSamochodu samochod;
              using (var dbAccess = new DB2KomisDataBaseEntities())
              {
+                 var idModelu = dbAccess.ModeleSamochodow.Select(x => x.IdModelu).ToList().ElementAt(LosujLiczbe(dbAccess.ModeleSamochodow.Select(x => x.IdModelu).ToList().Count));
+                 var idMarki = dbAccess.ModeleSamochodow.Where(x => x.IdModelu == idModelu).Select(z => z.IdMarki).ToList().First();
 
+                 var nazwaModelu = dbAccess.ModeleSamochodow.First(x => x.IdModelu == idModelu).Model;
+                 var nazwaMarki = dbAccess.MarkiSamochodow.First(x => x.IdMarki == idMarki).Marka;
+
+                 query = (String.Format("{0} {1}", nazwaMarki, nazwaModelu));
+
+                 _img.GetRandomImage(String.Format("{0} {1}",nazwaMarki, nazwaModelu));
+                
                  samochod = new DaneSamochodu()
                  {
-                     IdModelu = dbAccess.ModeleSamochodow.Select(x => x.IdModelu).ToList().ElementAt(LosujLiczbe(dbAccess.ModeleSamochodow.Select(x => x.IdModelu).ToList().Count)),
+                     IdModelu = idModelu,
                      RokProdukcji = LosujLiczbe(2016, 1980).ToString(),
-                     Przebieg = LosujLiczbe(250000).ToString(),
-                     Pojemnosc = LosujLiczbe(3000).ToString("### ### ###"),
+                     Przebieg = LosujLiczbe(250000,4999).ToString(),
+                     Pojemnosc = LosujLiczbe(3000,700).ToString("### ### ###"),
                      RodzajPaliwa = Enum.GetName(typeof(RodzajePaliwaEnum), (RodzajePaliwaEnum)LosujLiczbe(Enum.GetNames(typeof(RodzajePaliwaEnum)).Count())).ToLower(),
                      SkrzyniaBiegow = Enum.GetName(typeof(SkrzynieBiegowEnum), (SkrzynieBiegowEnum)LosujLiczbe(Enum.GetNames(typeof(SkrzynieBiegowEnum)).Count())).ToLower(),
                      Bezwypadkowy = Convert.ToBoolean(LosujLiczbe(2)),

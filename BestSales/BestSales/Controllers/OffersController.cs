@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using BestSales.Models.DbInsert;
 using BestSales.Models.DB;
 
 namespace BestSales.Controllers
@@ -25,6 +26,20 @@ namespace BestSales.Controllers
             
 
             return View(dbAccess);
+        }
+
+        public ActionResult Generate(int amount)
+        {
+            RandomCarGenerator rcg = new RandomCarGenerator();
+
+            for (int i = 0; i < amount; i++)
+            {
+                rcg.InsertRandomCar();
+            }
+
+            ViewBag.Amount = amount;
+
+            return View();
         }
 
     }

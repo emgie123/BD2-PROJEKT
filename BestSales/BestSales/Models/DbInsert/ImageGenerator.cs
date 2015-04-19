@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text.RegularExpressions;
 using System.Web;
 using BestSales.Models.DB;
 
@@ -14,10 +15,13 @@ namespace BestSales.Models.DbInsert
         private Random rnd;
         private string _imgTopic;
         private int _iterator;
+        private const string _path = @"c:\BSObrazy\";
+        public string ImagesSavePath { get; set; }
 
         public ImageGenerator()
         {
             rnd = new Random();
+            ImagesSavePath = _path;
         }
         private readonly List<string> _topics = new List<string>
         {
@@ -28,7 +32,9 @@ namespace BestSales.Models.DbInsert
         {
            
 
-            string url = "https://www.google.com/search?q=" + _imgTopic + "&tbm=isch";
+
+            //string url = "https://www.google.com/search?q=" + _imgTopic + "&tbm=isch";
+            string url = "http://www.picsearch.com/index.cgi?q=" + _imgTopic;
             string data = "";
 
             var request = (HttpWebRequest)WebRequest.Create(url);
@@ -49,8 +55,9 @@ namespace BestSales.Models.DbInsert
         private List<string> GetUrls(string html)
         {
             var urls = new List<string>();
+
          
-            int ndx = html.IndexOf("<img", 0, StringComparison.Ordinal);
+           int ndx = html.IndexOf("<img", 0, StringComparison.Ordinal);
 
             while (ndx >= 0)
             {
@@ -86,7 +93,9 @@ namespace BestSales.Models.DbInsert
 
         public void GetRandomImage(string imgTopic)
         {
-            this._imgTopic = imgTopic;
+
+
+            _imgTopic = Regex.Replace(imgTopic, @"\s{1,}", "+");
             using (DB2KomisDataBaseEntities dbAccess = new DB2KomisDataBaseEntities())
             {
                 _iterator = dbAccess.DaneSamochodu.Select(x => x.IdSamochodu).Max() + 1;
@@ -94,16 +103,25 @@ namespace BestSales.Models.DbInsert
 
             string html = GetHtmlCode();
             List<string> urls = GetUrls(html);
-
+            if (urls.Count < 1) return;
             int randomUrl = rnd.Next(0, urls.Count - 1);
 
             string luckyUrl = urls[randomUrl];
 
             byte[] image = GetImage(luckyUrl);
+
+            if (!System.IO.Directory.Exists(ImagesSavePath))
+            {
+                System.IO.Directory.CreateDirectory(ImagesSavePath);
+
+            }
             using (var ms = new MemoryStream(image))
             {
                 Image newImage = Image.FromStream(ms);
-                newImage.Save("d:\\obrazy\\obrazek"+_iterator+".jpg");
+                newImage = new Bitmap(newImage,220,300);
+                newImage.Save(ImagesSavePath + _iterator + ".png");
+                newImage.Dispose();
+
             }
 
         }
