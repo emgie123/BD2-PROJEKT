@@ -42,7 +42,7 @@ namespace BestSales.Models.DbInsert
             {
 
                 _verifier.VerifyModeldName(model, dbConnnection);
-                dbConnnection.ModeleSamochodow.Add(new ModeleSamochodow() { Model = model, IdMarki = (int)marka, TypSamochodu = Enum.GetName(typeof(TypyPojazdowEnum), typAuta).ToLower() });
+                dbConnnection.ModeleSamochodow.Add(new ModeleSamochodow() { Model = model, IdMarki = (int)marka, TypPojazdu = Enum.GetName(typeof(TypyPojazdowEnum), typAuta).ToLower() });
                 dbConnnection.SaveChanges();
             }
 

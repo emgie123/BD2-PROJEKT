@@ -41,8 +41,11 @@ namespace BestSales.Models.DbInsert
              DaneSamochodu samochod;
              using (var dbAccess = new DB2KomisDataBaseEntities())
              {
+                 if(!dbAccess.MarkiSamochodow.Any()) throw new Exception("Brak marek samochodów w bazie");
+                 if(!dbAccess.ModeleSamochodow.Any()) throw new Exception("Brak modeli samochodów w bazie");
+                
                  var idModelu = dbAccess.ModeleSamochodow.Select(x => x.IdModelu).ToList().ElementAt(LosujLiczbe(dbAccess.ModeleSamochodow.Select(x => x.IdModelu).ToList().Count));
-                 var idMarki = dbAccess.ModeleSamochodow.Where(x => x.IdModelu == idModelu).Select(z => z.IdMarki).ToList().First();
+                 var idMarki =  dbAccess.ModeleSamochodow.Where(x => x.IdModelu == idModelu).Select(z => z.IdMarki).ToList().First();
 
                  var nazwaModelu = dbAccess.ModeleSamochodow.First(x => x.IdModelu == idModelu).Model;
                  var nazwaMarki = dbAccess.MarkiSamochodow.First(x => x.IdMarki == idMarki).Marka;
@@ -67,7 +70,7 @@ namespace BestSales.Models.DbInsert
                      NrRejestracyjny = String.Format("{0}{1}{2}", (char)LosujLiczbe(91, 65), (char)LosujLiczbe(91, 65), LosujLiczbe(99999, 10000)),
                      IdKlienta = dbAccess.Klienci.Select(x => x.IdKlienta).ToList().ElementAt(LosujLiczbe(dbAccess.Klienci.Select(x => x.IdKlienta).ToList().Count)),
                      Cena = LosujLiczbe(150000).ToString("### ### ###"),
-                     LiczbaDrzwi = ((int)((LiczbaDrzwiEnum)LosujLiczbe(Enum.GetNames(typeof(LiczbaDrzwiEnum)).Count()))).ToString().ToLower(),
+                     LiczbaDrzwi = ((int)((LiczbaDrzwiEnum)LosujLiczbe(Enum.GetNames(typeof(LiczbaDrzwiEnum)).Count(),2))).ToString().ToLower(),
                      RodzajNadwozia = Enum.GetName(typeof(RodzajNadwoziaEnum), (RodzajNadwoziaEnum)LosujLiczbe(Enum.GetNames(typeof(RodzajNadwoziaEnum)).Count())).ToLower(),
                      KrajPochodzenia = Enum.GetName(typeof(KrajePochodzeniaEnum), (KrajePochodzeniaEnum)LosujLiczbe(Enum.GetNames(typeof(KrajePochodzeniaEnum)).Count())),
                      Wyrozniony = Convert.ToBoolean(LosujLiczbe(2))
@@ -82,6 +85,7 @@ namespace BestSales.Models.DbInsert
 
         private int LosujLiczbe (int koniecOtwarty,int start = 0)
         {
+            
             return _generator.Next(start, koniecOtwarty);
         }
 

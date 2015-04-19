@@ -20,7 +20,6 @@ namespace BestSales.Controllers
             {
                 CarDisplayCondtions = (x, y) => ((DaneSamochodu) x).Wyrozniony
             };
-            // dbAccess.Database.ExecuteSqlCommand(query);
             
             return View(dbAccess);
 

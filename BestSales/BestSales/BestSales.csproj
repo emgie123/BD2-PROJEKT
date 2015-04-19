@@ -204,18 +204,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Images\IdImages\1.png" />
-    <Content Include="Images\IdImages\10.png" />
-    <Content Include="Images\IdImages\13.png" />
-    <Content Include="Images\IdImages\14.png" />
-    <Content Include="Images\IdImages\15.png" />
-    <Content Include="Images\IdImages\16.png" />
-    <Content Include="Images\IdImages\17.png" />
-    <Content Include="Images\IdImages\2.png" />
-    <Content Include="Images\IdImages\3.png" />
-    <Content Include="Images\IdImages\7.png" />
-    <Content Include="Images\IdImages\8.png" />
-    <Content Include="Images\IdImages\9.png" />
     <EntityDeploy Include="Models\DB\DB2KomisDataBaseEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DB2KomisDataBaseEntities.Designer.cs</LastGenOutput>
@@ -249,7 +237,9 @@
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\npm.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -276,7 +266,9 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Images\IdImages\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

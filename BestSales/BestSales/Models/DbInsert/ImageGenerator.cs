@@ -96,9 +96,12 @@ namespace BestSales.Models.DbInsert
 
 
             _imgTopic = Regex.Replace(imgTopic, @"\s{1,}", "+");
+        
             using (DB2KomisDataBaseEntities dbAccess = new DB2KomisDataBaseEntities())
             {
-                _iterator = dbAccess.DaneSamochodu.Select(x => x.IdSamochodu).Max() + 1;
+                _iterator = (!dbAccess.DaneSamochodu.Select(x=>x.IdModelu).Any())? 1:
+                    (dbAccess.DaneSamochodu.Select(x => x.IdSamochodu).Max() + 1);
+
             }
 
             string html = GetHtmlCode();
@@ -118,7 +121,7 @@ namespace BestSales.Models.DbInsert
             using (var ms = new MemoryStream(image))
             {
                 Image newImage = Image.FromStream(ms);
-                newImage = new Bitmap(newImage,220,300);
+                newImage = new Bitmap(newImage,300,220);
                 newImage.Save(ImagesSavePath + _iterator + ".png");
                 newImage.Dispose();
 

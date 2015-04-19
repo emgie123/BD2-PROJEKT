@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="robson081192_BestSalesDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DB2KomisDataBaseEntities.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Adres">
           <Key>
             <PropertyRef Name="IdAdresu" />
@@ -67,7 +67,7 @@
           <Property Name="IdModelu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IdMarki" Type="int" />
-          <Property Name="TypSamochodu" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TypPojazdu" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'robson081192_BestSalesDB.dbo.WyposazenieDodatkowe' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -99,7 +99,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
           <Property Name="IdSamochodu" Type="int" />
           <Property Name="ZalaczonyDokument" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK__DaneSamoc__IdKli__1B0907CE">
+        <Association Name="FK__DaneSamoc__IdKli__3E52440B">
           <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -113,7 +113,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DaneSamoc__IdMod__1A14E395">
+        <Association Name="FK__DaneSamoc__IdMod__3D5E1FD2">
           <End Role="ModeleSamochodow" Type="Self.ModeleSamochodow" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -127,7 +127,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Klienci__IdAdres__173876EA">
+        <Association Name="FK__Klienci__IdAdres__3A81B327">
           <End Role="Adres" Type="Self.Adres" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -141,7 +141,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ModeleSam__IdMar__145C0A3F">
+        <Association Name="FK__ModeleSam__IdMar__37A5467C">
           <End Role="MarkiSamochodow" Type="Self.MarkiSamochodow" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -155,7 +155,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Wyposazen__IdSam__1CF15040">
+        <Association Name="FK__Wyposazen__IdSam__403A8C7D">
           <End Role="DaneSamochodu" Type="Self.DaneSamochodu" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -169,7 +169,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zalaczone__IdSam__1ED998B2">
+        <Association Name="FK__Zalaczone__IdSam__4222D4EF">
           <End Role="DaneSamochodu" Type="Self.DaneSamochodu" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -183,7 +183,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="robson081192_BestSalesDBStoreContainer">
+        <EntityContainer Name="DB2KomisDataBaseEntitiesStoreContainer">
           <EntitySet Name="Adres" EntityType="Self.Adres" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DaneSamochodu" EntityType="Self.DaneSamochodu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Klienci" EntityType="Self.Klienci" Schema="dbo" store:Type="Tables" />
@@ -207,27 +207,27 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
     [ZalaczoneDokumenty].[ZalaczonyDokument] AS [ZalaczonyDokument]
     FROM [dbo].[ZalaczoneDokumenty] AS [ZalaczoneDokumenty]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__DaneSamoc__IdKli__1B0907CE" Association="Self.FK__DaneSamoc__IdKli__1B0907CE">
+          <AssociationSet Name="FK__DaneSamoc__IdKli__3E52440B" Association="Self.FK__DaneSamoc__IdKli__3E52440B">
             <End Role="Klienci" EntitySet="Klienci" />
             <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
           </AssociationSet>
-          <AssociationSet Name="FK__DaneSamoc__IdMod__1A14E395" Association="Self.FK__DaneSamoc__IdMod__1A14E395">
+          <AssociationSet Name="FK__DaneSamoc__IdMod__3D5E1FD2" Association="Self.FK__DaneSamoc__IdMod__3D5E1FD2">
             <End Role="ModeleSamochodow" EntitySet="ModeleSamochodow" />
             <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
           </AssociationSet>
-          <AssociationSet Name="FK__Klienci__IdAdres__173876EA" Association="Self.FK__Klienci__IdAdres__173876EA">
+          <AssociationSet Name="FK__Klienci__IdAdres__3A81B327" Association="Self.FK__Klienci__IdAdres__3A81B327">
             <End Role="Adres" EntitySet="Adres" />
             <End Role="Klienci" EntitySet="Klienci" />
           </AssociationSet>
-          <AssociationSet Name="FK__ModeleSam__IdMar__145C0A3F" Association="Self.FK__ModeleSam__IdMar__145C0A3F">
+          <AssociationSet Name="FK__ModeleSam__IdMar__37A5467C" Association="Self.FK__ModeleSam__IdMar__37A5467C">
             <End Role="MarkiSamochodow" EntitySet="MarkiSamochodow" />
             <End Role="ModeleSamochodow" EntitySet="ModeleSamochodow" />
           </AssociationSet>
-          <AssociationSet Name="FK__Wyposazen__IdSam__1CF15040" Association="Self.FK__Wyposazen__IdSam__1CF15040">
+          <AssociationSet Name="FK__Wyposazen__IdSam__403A8C7D" Association="Self.FK__Wyposazen__IdSam__403A8C7D">
             <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
             <End Role="WyposazenieDodatkowe" EntitySet="WyposazenieDodatkowe" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zalaczone__IdSam__1ED998B2" Association="Self.FK__Zalaczone__IdSam__1ED998B2">
+          <AssociationSet Name="FK__Zalaczone__IdSam__4222D4EF" Association="Self.FK__Zalaczone__IdSam__4222D4EF">
             <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
             <End Role="ZalaczoneDokumenty" EntitySet="ZalaczoneDokumenty" />
           </AssociationSet>
@@ -236,7 +236,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="robson081192_BestSalesDB" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DB2KomisDataBaseEntities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Adres">
           <Key>
             <PropertyRef Name="IdAdresu" />
@@ -245,7 +245,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
           <Property Name="Miejscowosc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="KodPocztowy" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Ulica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Klienci" Relationship="Self.FK__Klienci__IdAdres__173876EA" FromRole="Adres" ToRole="Klienci" />
+          <NavigationProperty Name="Klienci" Relationship="Self.FK__Klienci__IdAdres__3A81B327" FromRole="Adres" ToRole="Klienci" />
         </EntityType>
         <EntityType Name="DaneSamochodu">
           <Key>
@@ -270,10 +270,10 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
           <Property Name="RodzajNadwozia" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="KrajPochodzenia" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Wyrozniony" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Klienci" Relationship="Self.FK__DaneSamoc__IdKli__1B0907CE" FromRole="DaneSamochodu" ToRole="Klienci" />
-          <NavigationProperty Name="ModeleSamochodow" Relationship="Self.FK__DaneSamoc__IdMod__1A14E395" FromRole="DaneSamochodu" ToRole="ModeleSamochodow" />
-          <NavigationProperty Name="WyposazenieDodatkowe" Relationship="Self.FK__Wyposazen__IdSam__1CF15040" FromRole="DaneSamochodu" ToRole="WyposazenieDodatkowe" />
-          <NavigationProperty Name="ZalaczoneDokumenty" Relationship="Self.FK__Zalaczone__IdSam__1ED998B2" FromRole="DaneSamochodu" ToRole="ZalaczoneDokumenty" />
+          <NavigationProperty Name="Klienci" Relationship="Self.FK__DaneSamoc__IdKli__3E52440B" FromRole="DaneSamochodu" ToRole="Klienci" />
+          <NavigationProperty Name="ModeleSamochodow" Relationship="Self.FK__DaneSamoc__IdMod__3D5E1FD2" FromRole="DaneSamochodu" ToRole="ModeleSamochodow" />
+          <NavigationProperty Name="WyposazenieDodatkowe" Relationship="Self.FK__Wyposazen__IdSam__403A8C7D" FromRole="DaneSamochodu" ToRole="WyposazenieDodatkowe" />
+          <NavigationProperty Name="ZalaczoneDokumenty" Relationship="Self.FK__Zalaczone__IdSam__4222D4EF" FromRole="DaneSamochodu" ToRole="ZalaczoneDokumenty" />
         </EntityType>
         <EntityType Name="Klienci">
           <Key>
@@ -289,8 +289,8 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
           <Property Name="Nip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="NrKonta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TypKlienta" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Adres" Relationship="Self.FK__Klienci__IdAdres__173876EA" FromRole="Klienci" ToRole="Adres" />
-          <NavigationProperty Name="DaneSamochodu" Relationship="Self.FK__DaneSamoc__IdKli__1B0907CE" FromRole="Klienci" ToRole="DaneSamochodu" />
+          <NavigationProperty Name="Adres" Relationship="Self.FK__Klienci__IdAdres__3A81B327" FromRole="Klienci" ToRole="Adres" />
+          <NavigationProperty Name="DaneSamochodu" Relationship="Self.FK__DaneSamoc__IdKli__3E52440B" FromRole="Klienci" ToRole="DaneSamochodu" />
         </EntityType>
         <EntityType Name="MarkiSamochodow">
           <Key>
@@ -298,7 +298,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
           </Key>
           <Property Name="IdMarki" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Marka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="ModeleSamochodow" Relationship="Self.FK__ModeleSam__IdMar__145C0A3F" FromRole="MarkiSamochodow" ToRole="ModeleSamochodow" />
+          <NavigationProperty Name="ModeleSamochodow" Relationship="Self.FK__ModeleSam__IdMar__37A5467C" FromRole="MarkiSamochodow" ToRole="ModeleSamochodow" />
         </EntityType>
         <EntityType Name="ModeleSamochodow">
           <Key>
@@ -307,9 +307,9 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
           <Property Name="IdModelu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdMarki" Type="Int32" />
-          <Property Name="TypSamochodu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="DaneSamochodu" Relationship="Self.FK__DaneSamoc__IdMod__1A14E395" FromRole="ModeleSamochodow" ToRole="DaneSamochodu" />
-          <NavigationProperty Name="MarkiSamochodow" Relationship="Self.FK__ModeleSam__IdMar__145C0A3F" FromRole="ModeleSamochodow" ToRole="MarkiSamochodow" />
+          <Property Name="TypPojazdu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DaneSamochodu" Relationship="Self.FK__DaneSamoc__IdMod__3D5E1FD2" FromRole="ModeleSamochodow" ToRole="DaneSamochodu" />
+          <NavigationProperty Name="MarkiSamochodow" Relationship="Self.FK__ModeleSam__IdMar__37A5467C" FromRole="ModeleSamochodow" ToRole="MarkiSamochodow" />
         </EntityType>
         <EntityType Name="WyposazenieDodatkowe">
           <Key>
@@ -329,7 +329,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
           <Property Name="Wspomaganie" Type="Boolean" Nullable="false" />
           <Property Name="Klimatyzacja" Type="Boolean" Nullable="false" />
           <Property Name="ZapasoweOpony" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="DaneSamochodu" Relationship="Self.FK__Wyposazen__IdSam__1CF15040" FromRole="WyposazenieDodatkowe" ToRole="DaneSamochodu" />
+          <NavigationProperty Name="DaneSamochodu" Relationship="Self.FK__Wyposazen__IdSam__403A8C7D" FromRole="WyposazenieDodatkowe" ToRole="DaneSamochodu" />
         </EntityType>
         <EntityType Name="ZalaczoneDokumenty">
           <Key>
@@ -337,9 +337,9 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
           </Key>
           <Property Name="IdSamochodu" Type="Int32" />
           <Property Name="ZalaczonyDokument" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="DaneSamochodu" Relationship="Self.FK__Zalaczone__IdSam__1ED998B2" FromRole="ZalaczoneDokumenty" ToRole="DaneSamochodu" />
+          <NavigationProperty Name="DaneSamochodu" Relationship="Self.FK__Zalaczone__IdSam__4222D4EF" FromRole="ZalaczoneDokumenty" ToRole="DaneSamochodu" />
         </EntityType>
-        <Association Name="FK__Klienci__IdAdres__173876EA">
+        <Association Name="FK__Klienci__IdAdres__3A81B327">
           <End Role="Adres" Type="Self.Adres" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -353,7 +353,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DaneSamoc__IdKli__1B0907CE">
+        <Association Name="FK__DaneSamoc__IdKli__3E52440B">
           <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -367,7 +367,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DaneSamoc__IdMod__1A14E395">
+        <Association Name="FK__DaneSamoc__IdMod__3D5E1FD2">
           <End Role="ModeleSamochodow" Type="Self.ModeleSamochodow" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -381,7 +381,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Wyposazen__IdSam__1CF15040">
+        <Association Name="FK__Wyposazen__IdSam__403A8C7D">
           <End Role="DaneSamochodu" Type="Self.DaneSamochodu" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -395,7 +395,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zalaczone__IdSam__1ED998B2">
+        <Association Name="FK__Zalaczone__IdSam__4222D4EF">
           <End Role="DaneSamochodu" Type="Self.DaneSamochodu" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -409,7 +409,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ModeleSam__IdMar__145C0A3F">
+        <Association Name="FK__ModeleSam__IdMar__37A5467C">
           <End Role="MarkiSamochodow" Type="Self.MarkiSamochodow" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -431,27 +431,27 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
           <EntitySet Name="ModeleSamochodow" EntityType="Self.ModeleSamochodow" />
           <EntitySet Name="WyposazenieDodatkowe" EntityType="Self.WyposazenieDodatkowe" />
           <EntitySet Name="ZalaczoneDokumenty" EntityType="Self.ZalaczoneDokumenty" />
-          <AssociationSet Name="FK__Klienci__IdAdres__173876EA" Association="Self.FK__Klienci__IdAdres__173876EA">
+          <AssociationSet Name="FK__Klienci__IdAdres__3A81B327" Association="Self.FK__Klienci__IdAdres__3A81B327">
             <End Role="Adres" EntitySet="Adres" />
             <End Role="Klienci" EntitySet="Klienci" />
           </AssociationSet>
-          <AssociationSet Name="FK__DaneSamoc__IdKli__1B0907CE" Association="Self.FK__DaneSamoc__IdKli__1B0907CE">
+          <AssociationSet Name="FK__DaneSamoc__IdKli__3E52440B" Association="Self.FK__DaneSamoc__IdKli__3E52440B">
             <End Role="Klienci" EntitySet="Klienci" />
             <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
           </AssociationSet>
-          <AssociationSet Name="FK__DaneSamoc__IdMod__1A14E395" Association="Self.FK__DaneSamoc__IdMod__1A14E395">
+          <AssociationSet Name="FK__DaneSamoc__IdMod__3D5E1FD2" Association="Self.FK__DaneSamoc__IdMod__3D5E1FD2">
             <End Role="ModeleSamochodow" EntitySet="ModeleSamochodow" />
             <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
           </AssociationSet>
-          <AssociationSet Name="FK__Wyposazen__IdSam__1CF15040" Association="Self.FK__Wyposazen__IdSam__1CF15040">
+          <AssociationSet Name="FK__Wyposazen__IdSam__403A8C7D" Association="Self.FK__Wyposazen__IdSam__403A8C7D">
             <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
             <End Role="WyposazenieDodatkowe" EntitySet="WyposazenieDodatkowe" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zalaczone__IdSam__1ED998B2" Association="Self.FK__Zalaczone__IdSam__1ED998B2">
+          <AssociationSet Name="FK__Zalaczone__IdSam__4222D4EF" Association="Self.FK__Zalaczone__IdSam__4222D4EF">
             <End Role="DaneSamochodu" EntitySet="DaneSamochodu" />
             <End Role="ZalaczoneDokumenty" EntitySet="ZalaczoneDokumenty" />
           </AssociationSet>
-          <AssociationSet Name="FK__ModeleSam__IdMar__145C0A3F" Association="Self.FK__ModeleSam__IdMar__145C0A3F">
+          <AssociationSet Name="FK__ModeleSam__IdMar__37A5467C" Association="Self.FK__ModeleSam__IdMar__37A5467C">
             <End Role="MarkiSamochodow" EntitySet="MarkiSamochodow" />
             <End Role="ModeleSamochodow" EntitySet="ModeleSamochodow" />
           </AssociationSet>
@@ -461,9 +461,9 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="robson081192_BestSalesDBStoreContainer" CdmEntityContainer="robson081192_BestSalesDBEntities">
+        <EntityContainerMapping StorageEntityContainer="DB2KomisDataBaseEntitiesStoreContainer" CdmEntityContainer="robson081192_BestSalesDBEntities">
           <EntitySetMapping Name="Adres">
-            <EntityTypeMapping TypeName="robson081192_BestSalesDB.Adres">
+            <EntityTypeMapping TypeName="DB2KomisDataBaseEntities.Adres">
               <MappingFragment StoreEntitySet="Adres">
                 <ScalarProperty Name="IdAdresu" ColumnName="IdAdresu" />
                 <ScalarProperty Name="Miejscowosc" ColumnName="Miejscowosc" />
@@ -473,7 +473,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DaneSamochodu">
-            <EntityTypeMapping TypeName="robson081192_BestSalesDB.DaneSamochodu">
+            <EntityTypeMapping TypeName="DB2KomisDataBaseEntities.DaneSamochodu">
               <MappingFragment StoreEntitySet="DaneSamochodu">
                 <ScalarProperty Name="IdSamochodu" ColumnName="IdSamochodu" />
                 <ScalarProperty Name="IdModelu" ColumnName="IdModelu" />
@@ -498,7 +498,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Klienci">
-            <EntityTypeMapping TypeName="robson081192_BestSalesDB.Klienci">
+            <EntityTypeMapping TypeName="DB2KomisDataBaseEntities.Klienci">
               <MappingFragment StoreEntitySet="Klienci">
                 <ScalarProperty Name="IdKlienta" ColumnName="IdKlienta" />
                 <ScalarProperty Name="Imie" ColumnName="Imie" />
@@ -514,7 +514,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MarkiSamochodow">
-            <EntityTypeMapping TypeName="robson081192_BestSalesDB.MarkiSamochodow">
+            <EntityTypeMapping TypeName="DB2KomisDataBaseEntities.MarkiSamochodow">
               <MappingFragment StoreEntitySet="MarkiSamochodow">
                 <ScalarProperty Name="IdMarki" ColumnName="IdMarki" />
                 <ScalarProperty Name="Marka" ColumnName="Marka" />
@@ -522,17 +522,17 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ModeleSamochodow">
-            <EntityTypeMapping TypeName="robson081192_BestSalesDB.ModeleSamochodow">
+            <EntityTypeMapping TypeName="DB2KomisDataBaseEntities.ModeleSamochodow">
               <MappingFragment StoreEntitySet="ModeleSamochodow">
                 <ScalarProperty Name="IdModelu" ColumnName="IdModelu" />
                 <ScalarProperty Name="Model" ColumnName="Model" />
                 <ScalarProperty Name="IdMarki" ColumnName="IdMarki" />
-                <ScalarProperty Name="TypSamochodu" ColumnName="TypSamochodu" />
+                <ScalarProperty Name="TypPojazdu" ColumnName="TypPojazdu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="WyposazenieDodatkowe">
-            <EntityTypeMapping TypeName="robson081192_BestSalesDB.WyposazenieDodatkowe">
+            <EntityTypeMapping TypeName="DB2KomisDataBaseEntities.WyposazenieDodatkowe">
               <MappingFragment StoreEntitySet="WyposazenieDodatkowe">
                 <ScalarProperty Name="IdSamochodu" ColumnName="IdSamochodu" />
                 <ScalarProperty Name="Abs" ColumnName="Abs" />
@@ -546,7 +546,7 @@ warning 6002: The table/view 'robson081192_BestSalesDB.dbo.ZalaczoneDokumenty' d
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ZalaczoneDokumenty">
-            <EntityTypeMapping TypeName="robson081192_BestSalesDB.ZalaczoneDokumenty">
+            <EntityTypeMapping TypeName="DB2KomisDataBaseEntities.ZalaczoneDokumenty">
               <MappingFragment StoreEntitySet="ZalaczoneDokumenty">
                 <ScalarProperty Name="IdSamochodu" ColumnName="IdSamochodu" />
                 <ScalarProperty Name="ZalaczonyDokument" ColumnName="ZalaczonyDokument" />

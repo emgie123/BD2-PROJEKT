@@ -23,7 +23,8 @@ CREATE TABLE [dbo].[Adres]
 (
 	[IdModelu] int NOT NULL PRIMARY KEY IDENTITY,
 	[Model] varchar(50) NOT NULL ,
-	[IdMarki] int FOREIGN KEY REFERENCES MarkiSamochodow(IdMarki) ON DELETE CASCADE ON UPDATE CASCADE
+	[IdMarki] int FOREIGN KEY REFERENCES MarkiSamochodow(IdMarki) ON DELETE CASCADE ON UPDATE CASCADE,
+	[TypPojazdu] varchar(50) NOT NULL
 
 	)
 	
@@ -63,6 +64,7 @@ CREATE TABLE [dbo].[Adres]
 	[RodzajNadwozia] VARCHAR(25) NOT NULL,
 	[KrajPochodzenia] VARCHAR (25) NOT NULL,
 	[Wyrozniony] Bit NOT NULL
+
 	)
 
 	

@@ -10,7 +10,7 @@ namespace BestSales.Models.DbInsert
     {
 
 
-        public void CheckIfModelExists(DB2KomisDataBaseEntities dbAccess, ModeleSamochodowEnum model)
+         public void CheckIfModelExists(DB2KomisDataBaseEntities dbAccess, ModeleSamochodowEnum model)
         {
             if (
                 dbAccess.ModeleSamochodow.All(
@@ -21,7 +21,7 @@ namespace BestSales.Models.DbInsert
             }
         }
 
-        public void VerifyBrandName(string brand, DB2KomisDataBaseEntities dbConnnection)
+         public void VerifyBrandName(string brand, DB2KomisDataBaseEntities dbConnnection)
         {
             if (!(dbConnnection.MarkiSamochodow.All(x => x.Marka.ToUpper() != brand.ToUpper())))
             {
@@ -31,7 +31,7 @@ namespace BestSales.Models.DbInsert
 
         }
 
-        public void VerifyModeldName(string model, DB2KomisDataBaseEntities dbConnnection)
+         public void VerifyModeldName(string model, DB2KomisDataBaseEntities dbConnnection)
         {
             if (!(dbConnnection.ModeleSamochodow.All(x => x.Model.ToUpper() != model.ToUpper())))
             {
@@ -41,7 +41,7 @@ namespace BestSales.Models.DbInsert
 
         }
 
-        public void VerifyBrandsNumber(DB2KomisDataBaseEntities dbConnnection)
+         public void VerifyBrandsNumber(DB2KomisDataBaseEntities dbConnnection)
         {
             if (dbConnnection.MarkiSamochodow.Count() != Enum.GetNames(typeof(MarkiSamochodowEnum)).Count())
             {
@@ -51,7 +51,7 @@ namespace BestSales.Models.DbInsert
 
         }
 
-        public void VerifyModelsNumber(DB2KomisDataBaseEntities dbConnnection)
+         public void VerifyModelsNumber(DB2KomisDataBaseEntities dbConnnection)
         {
             if (dbConnnection.ModeleSamochodow.Count() != Enum.GetNames(typeof(ModeleSamochodowEnum)).Count())
             {

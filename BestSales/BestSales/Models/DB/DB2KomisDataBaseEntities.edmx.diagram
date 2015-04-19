@@ -4,20 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="36fffa73c6b84aba89caf06fcdc7d231" Name="Diagram1">
-        <EntityTypeShape EntityType="robson081192_BestSalesDB.Adres" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="robson081192_BestSalesDB.DaneSamochodu" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="robson081192_BestSalesDB.Klienci" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="robson081192_BestSalesDB.MarkiSamochodow" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="robson081192_BestSalesDB.ModeleSamochodow" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="robson081192_BestSalesDB.WyposazenieDodatkowe" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="robson081192_BestSalesDB.ZalaczoneDokumenty" Width="1.5" PointX="7.5" PointY="4.75" IsExpanded="true" />
-        <AssociationConnector Association="robson081192_BestSalesDB.FK__Klienci__IdAdres__173876EA" ManuallyRouted="false" />
-        <AssociationConnector Association="robson081192_BestSalesDB.FK__DaneSamoc__IdKli__1B0907CE" ManuallyRouted="false" />
-        <AssociationConnector Association="robson081192_BestSalesDB.FK__DaneSamoc__IdMod__1A14E395" ManuallyRouted="false" />
-        <AssociationConnector Association="robson081192_BestSalesDB.FK__Wyposazen__IdSam__1CF15040" ManuallyRouted="false" />
-        <AssociationConnector Association="robson081192_BestSalesDB.FK__Zalaczone__IdSam__1ED998B2" ManuallyRouted="false" />
-        <AssociationConnector Association="robson081192_BestSalesDB.FK__ModeleSam__IdMar__145C0A3F" ManuallyRouted="false" />
+      <Diagram DiagramId="6ab2f63e9fb4430d945bad679911232b" Name="Diagram1">
+        <EntityTypeShape EntityType="DB2KomisDataBaseEntities.Adres" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB2KomisDataBaseEntities.DaneSamochodu" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB2KomisDataBaseEntities.Klienci" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB2KomisDataBaseEntities.MarkiSamochodow" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB2KomisDataBaseEntities.ModeleSamochodow" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB2KomisDataBaseEntities.WyposazenieDodatkowe" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB2KomisDataBaseEntities.ZalaczoneDokumenty" Width="1.5" PointX="7.5" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="DB2KomisDataBaseEntities.FK__Klienci__IdAdres__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="DB2KomisDataBaseEntities.FK__DaneSamoc__IdKli__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="DB2KomisDataBaseEntities.FK__DaneSamoc__IdMod__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="DB2KomisDataBaseEntities.FK__Wyposazen__IdSam__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="DB2KomisDataBaseEntities.FK__Zalaczone__IdSam__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="DB2KomisDataBaseEntities.FK__ModeleSam__IdMar__37A5467C" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
