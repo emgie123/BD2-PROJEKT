@@ -123,6 +123,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IUserLogic.cs" />
+    <Compile Include="Logic\User\UserLogic.cs" />
     <Compile Include="Models\DbInsert\DbInsert.cs" />
     <Compile Include="Models\DbInsert\Factories.cs" />
     <Compile Include="Models\DbInsert\ImageGenerator.cs" />
@@ -172,26 +174,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="App_Data\Bd2KomisBD.mdf" />
-    <Content Include="App_Data\Bd2KomisBDEntities.mdf" />
-    <Content Include="App_Data\Bd2KomisBDEntities_log.ldf">
-      <DependentUpon>Bd2KomisBDEntities.mdf</DependentUpon>
-    </Content>
-    <Content Include="App_Data\Bd2KomisBD_log.ldf">
-      <DependentUpon>Bd2KomisBD.mdf</DependentUpon>
-    </Content>
-    <Content Include="App_Data\BD2KomisDataBase.mdf" />
-    <Content Include="App_Data\BD2KomisDataBase_log.ldf">
-      <DependentUpon>BD2KomisDataBase.mdf</DependentUpon>
-    </Content>
-    <Content Include="App_Data\Bd2KomisDB.mdf" />
-    <Content Include="App_Data\Bd2KomisDB_log.ldf">
-      <DependentUpon>Bd2KomisDB.mdf</DependentUpon>
-    </Content>
-    <Content Include="App_Data\DB2KomisDataBase.mdf" />
-    <Content Include="App_Data\DB2KomisDataBase_log.ldf">
-      <DependentUpon>DB2KomisDataBase.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -267,6 +249,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\fluidvids.js" />
+    <None Include="Properties\PublishProfiles\hostingasp.pubxml" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\jquery-2.1.3.min.js" />
@@ -307,6 +290,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Images\IdImages\" />
   </ItemGroup>
   <PropertyGroup>

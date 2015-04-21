@@ -1,13 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
+using BestSales.Models.UserInfo;
 
 namespace BestSales.Models.DbInsert
 {
     public static class Factories
     {
-        
+
+        public static Lazy<Dictionary<int, int>> abc = new Lazy<Dictionary<int, int>>(() => new Dictionary<int, int>()
+            {
+            {1,1},
+            {1,1}});
+
+        public static Dictionary<int, int> getAbc()
+        {
+
+            return new Dictionary<int, int>()
+            {
+                {1, 2}
+            };
+        } 
         public static Dictionary<ModeleSamochodowEnum, int> ModelToBrand = new Dictionary<ModeleSamochodowEnum, int>()
         {   //VW
             {ModeleSamochodowEnum.Passat,1},
@@ -16,7 +31,7 @@ namespace BestSales.Models.DbInsert
             {ModeleSamochodowEnum.Touran,1},
 
             //OPEL
-            {ModeleSamochodowEnum.Touran,2},
+            //{ModeleSamochodowEnum.Touran,2},
             {ModeleSamochodowEnum.Kadett,2},
             {ModeleSamochodowEnum.Zafira,2},
             {ModeleSamochodowEnum.Astra,2},
@@ -57,5 +72,7 @@ namespace BestSales.Models.DbInsert
             {"BRĄZOWY","Brown"},
 
         };
+
+        
     }
 }

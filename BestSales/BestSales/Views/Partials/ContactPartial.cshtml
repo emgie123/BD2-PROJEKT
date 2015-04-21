@@ -1,14 +1,45 @@
-﻿@model BestSales.Models.UserInfo.User
+﻿@using System.CodeDom
+@using System.Collections
+@using System.Reflection
+@using BestSales.Models.UserInfo
+@model BestSales.Models.UserInfo.User
 <div id="userdetails-section">
     <img src="~/Images/UserIcons/@Model.ThumbnailName" alt="Miniaturka-zdjęcia" />
     <h2>@Model.Name</h2>
     <h4>@Model.Profession</h4>
-
+   
+    @{
+        var propertys = Model.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public);
+       
+        
+    }
     <ul class="list-group">
-        @foreach (var detail in Model.Details)
+        @for (int i = 3; i < propertys.Length; i++)
         {
             <li class="list-group-item row">
-                <div class="col-sm-6"><b>@detail.Key</b></div>
+                <div class="col-sm-6">
+                    <b>
+                        @propertys[i].Name
+                    </b>
+                </div>
+                <div class="col-sm-6">
+                    @if ((propertys[i].GetValue(Model).GetType().ToString() == typeof (System.Collections.Generic.List<string>).ToString()))
+                    {
+                        var last = propertys[i].ToString().Split(' ');
+                        var name = last[last.Length - 1];
+                        var z = Model.GetType().GetProperty(name);
+                        
+                        @propertys[i].GetValue(Model).ToString()
+                    }
+                    @propertys[i].GetValue(Model).ToString()
+                </div>
+            </li>
+        }
+        @*@foreach (var detail in Model.)
+        {
+            <li class="list-group-item row">
+                <div class="col-sm-6"><b>@detail.Key</b>
+                </div>
                 <div class="col-sm-6">
                     <b>
                         <span class="glyphicon-home"></span>
@@ -16,6 +47,6 @@
                     </b>
                 </div>
             </li>
-        }
+        }*@
     </ul>    
 </div>
