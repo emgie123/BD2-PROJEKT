@@ -8,7 +8,7 @@ namespace BestSales.Models.UserInfo
 {
     public class User
     {
-
+        
         public string ThumbnailName { get; set; }
         public string Name { get; set; }
         public string Profession { get; set; }

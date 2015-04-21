@@ -10,8 +10,7 @@
    
     @{
         var propertys = Model.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public);
-       
-        
+
     }
     <ul class="list-group">
         @for (int i = 3; i < propertys.Length; i++)
@@ -23,12 +22,14 @@
                     </b>
                 </div>
                 <div class="col-sm-6">
+                    
                     @if ((propertys[i].GetValue(Model).GetType().ToString() == typeof (System.Collections.Generic.List<string>).ToString()))
                     {
                         var last = propertys[i].ToString().Split(' ');
                         var name = last[last.Length - 1];
-                        var z = Model.GetType().GetProperty(name);
-                        
+                        var List = Model.GetType().GetProperty(name);
+
+
                         @propertys[i].GetValue(Model).ToString()
                     }
                     @propertys[i].GetValue(Model).ToString()

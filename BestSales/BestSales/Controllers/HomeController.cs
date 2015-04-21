@@ -16,7 +16,7 @@ namespace BestSales.Controllers
     {
         //
         // GET: /Home/
-        protected IUserLogic UserLogic;
+        protected internal IUserLogic UserLogic;
 
         public HomeController()
         {
