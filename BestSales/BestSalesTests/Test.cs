@@ -17,12 +17,18 @@ namespace BestSalesTests
         [TestMethod]
         public void TestMethod1()
         {
+
+
+            ImageGenerator img = new ImageGenerator();
+
+            img.GetRandomImage("volvo");
+
          RandomCarGenerator rcg = new RandomCarGenerator();
 
             
             var z = Factories.TranslateColour["CZARNY"];
            var c = rcg.ReturnRandomCar();
-            ImageGenerator img = new ImageGenerator();
+ 
             for (int i = 0; i < 20; i++)
             {
                 rcg.ReturnRandomCar();

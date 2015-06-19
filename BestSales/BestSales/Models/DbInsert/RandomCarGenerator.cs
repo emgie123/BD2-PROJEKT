@@ -22,8 +22,6 @@ namespace BestSales.Models.DbInsert
        
         public void InsertRandomCar()
         {
-
-
             using (var dbAccess = new DB2KomisDataBaseEntities())
             {
 
